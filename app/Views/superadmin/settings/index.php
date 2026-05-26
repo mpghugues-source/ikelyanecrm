@@ -77,29 +77,36 @@
                     <div class="d-flex align-items-center gap-2 mb-1">
                         <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700">SUPER ADMIN</span>
                     </div>
-                    <div style="font-size:.85rem;font-weight:600">superadmin@ikelyanemed.com</div>
-                    <div class="text-muted" style="font-size:.8rem">SuperAdmin@2024</div>
+                    <div style="font-size:.85rem;font-weight:600">superadmin@ikelyanecrm.com</div>
+                    <div class="text-muted" style="font-size:.8rem">Admin@2024</div>
                 </div>
                 <div class="info-box">
                     <div class="d-flex align-items-center gap-2 mb-1">
                         <span style="background:#1a56db;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700">ADMIN</span>
                     </div>
-                    <div style="font-size:.85rem;font-weight:600">admin@ikelyanemed.com</div>
+                    <div style="font-size:.85rem;font-weight:600">admin@ikelyane.dz</div>
                     <div class="text-muted" style="font-size:.8rem">Admin@2024</div>
                 </div>
                 <div class="info-box">
                     <div class="d-flex align-items-center gap-2 mb-1">
-                        <span style="background:#7c3aed;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700"><?= strtoupper(lang('Admin.role_medecin')) ?></span>
+                        <span style="background:#0ea5e9;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700">MANAGER</span>
                     </div>
-                    <div style="font-size:.85rem;font-weight:600">dr.benaissa@ikelyanemed.com</div>
-                    <div class="text-muted" style="font-size:.8rem">Medecin@2024</div>
+                    <div style="font-size:.85rem;font-weight:600">manager@ikelyane.dz</div>
+                    <div class="text-muted" style="font-size:.8rem">Admin@2024</div>
+                </div>
+                <div class="info-box">
+                    <div class="d-flex align-items-center gap-2 mb-1">
+                        <span style="background:#7c3aed;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700">COMMERCIAL</span>
+                    </div>
+                    <div style="font-size:.85rem;font-weight:600">commercial@ikelyane.dz</div>
+                    <div class="text-muted" style="font-size:.8rem">Admin@2024</div>
                 </div>
                 <div class="info-box mb-0">
                     <div class="d-flex align-items-center gap-2 mb-1">
-                        <span style="background:#059669;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700">PATIENT</span>
+                        <span style="background:#059669;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700">SUPPORT</span>
                     </div>
-                    <div style="font-size:.85rem;font-weight:600">fatima.amrani@email.com</div>
-                    <div class="text-muted" style="font-size:.8rem">Patient@2024</div>
+                    <div style="font-size:.85rem;font-weight:600">support@ikelyane.dz</div>
+                    <div class="text-muted" style="font-size:.8rem">Admin@2024</div>
                 </div>
             </div>
 
