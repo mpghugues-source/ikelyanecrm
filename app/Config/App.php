@@ -15,7 +15,23 @@ class App extends BaseConfig
     public string $charset          = 'UTF-8';
     public bool   $forceGlobalSecureRequests = true;
     public bool   $CSPEnabled        = false;
-    public string|array $proxyIPs   = ['172.16.0.0/12', '173.245.48.0/20', '103.21.244.0/22', '103.22.200.0/22', '103.31.4.0/22', '141.101.64.0/18', '108.162.192.0/18', '190.93.240.0/20', '188.114.96.0/20', '197.234.240.0/22', '198.41.128.0/17', '162.158.0.0/15', '104.16.0.0/13', '104.24.0.0/14', '172.64.0.0/13', '131.0.72.0/22'];
+    public string|array $proxyIPs   = [
+        '173.245.48.0/20'  => 'X-Forwarded-For',
+        '103.21.244.0/22'  => 'X-Forwarded-For',
+        '103.22.200.0/22'  => 'X-Forwarded-For',
+        '103.31.4.0/22'    => 'X-Forwarded-For',
+        '141.101.64.0/18'  => 'X-Forwarded-For',
+        '108.162.192.0/18' => 'X-Forwarded-For',
+        '190.93.240.0/20'  => 'X-Forwarded-For',
+        '188.114.96.0/20'  => 'X-Forwarded-For',
+        '197.234.240.0/22' => 'X-Forwarded-For',
+        '198.41.128.0/17'  => 'X-Forwarded-For',
+        '162.158.0.0/15'   => 'X-Forwarded-For',
+        '104.16.0.0/13'    => 'X-Forwarded-For',
+        '104.24.0.0/14'    => 'X-Forwarded-For',
+        '172.64.0.0/13'    => 'X-Forwarded-For',
+        '131.0.72.0/22'    => 'X-Forwarded-For',
+    ];
     public string $CSRFTokenName    = 'csrf_token_name';
     public string $CSRFHeaderName   = 'X-CSRF-TOKEN';
     public string $CSRFCookieName   = 'csrf_cookie_name';
@@ -23,7 +39,7 @@ class App extends BaseConfig
     public bool   $CSRFRegenerate   = true;
     public array  $CSRFExcludeURIs  = [];
     public string $CSRFSameSite     = 'Lax';
-    public string $cookiePrefix     = '__Secure-';
+    public string $cookiePrefix     = '';
     public string $cookieDomain     = 'ikelyanecrm.com';
     public string $cookiePath       = '/';
     public bool   $cookieSecure     = true;

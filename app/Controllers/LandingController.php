@@ -60,10 +60,12 @@ class LandingController extends BaseController
     private function getDashboardRoute(): string
     {
         return match (session()->get('role')) {
-            'admin', 'super_admin', 'secretaire' => '/admin/dashboard',
-            'medecin'  => '/medecin/dashboard',
-            'patient'  => '/patient/dashboard',
-            default    => '/login',
+            'super_admin'           => '/superadmin/dashboard',
+            'admin', 'manager'      => '/admin/dashboard',
+            'commercial', 'support' => '/crm/',
+            'medecin'               => '/medecin/dashboard',
+            'patient'               => '/patient/dashboard',
+            default                 => '/login',
         };
     }
 }
