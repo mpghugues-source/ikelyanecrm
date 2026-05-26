@@ -16,4 +16,19 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
         \Config\Services::language()->setLocale(session()->get('locale') ?? 'fr');
     }
+
+    protected function getTenantId(): int
+    {
+        return (int) session()->get('tenant_id');
+    }
+
+    protected function getUserId(): int
+    {
+        return (int) session()->get('user_id');
+    }
+
+    protected function getMedecinId(): int
+    {
+        return (int) session()->get('medecin_id');
+    }
 }
