@@ -1,6 +1,8 @@
 <?php
 return [
-    'login_title'       => 'Sign In',
+    'invalid_credentials' => 'Incorrect email or password.',
+    'reset_sent'          => 'If this email exists, a reset link has been sent.',
+    'login_title'         => 'Sign In',
     'platform'          => 'Intelligent CRM & ERP Platform',
     'email'             => 'Email address',
     'email_placeholder' => 'example@clinic.com',

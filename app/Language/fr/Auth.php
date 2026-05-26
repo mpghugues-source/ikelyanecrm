@@ -1,6 +1,8 @@
 <?php
 return [
-    'login_title'       => 'Connexion',
+    'invalid_credentials' => 'Email ou mot de passe incorrect.',
+    'reset_sent'          => 'Si cet email existe, un lien de réinitialisation a été envoyé.',
+    'login_title'         => 'Connexion',
     'platform'          => 'Plateforme CRM & ERP intelligente',
     'email'             => 'Adresse email',
     'email_placeholder' => 'vous@entreprise.com',

@@ -19,6 +19,7 @@ class AuthController extends BaseController
         $model->update($user['id'], ['last_login' => date('Y-m-d H:i:s')]);
         $locale = $user['locale'] ?? 'fr';
         session()->set([
+            'logged_in' => true,
             'user_id'   => $user['id'],
             'tenant_id' => $user['tenant_id'],
             'role'      => $user['role'],
@@ -29,8 +30,12 @@ class AuthController extends BaseController
             'locale'    => $locale,
         ]);
         \Config\Services::language()->setLocale($locale);
-        if ($user['role'] === 'super_admin') return redirect()->to('/superadmin/dashboard');
-        return redirect()->to('/dashboard');
+        return redirect()->to(match($user['role']) {
+            'super_admin'           => '/superadmin/dashboard',
+            'admin', 'manager'      => '/admin/dashboard',
+            'commercial', 'support' => '/crm/',
+            default                 => '/login',
+        });
     }
 
     public function logout(): \CodeIgniter\HTTP\RedirectResponse
