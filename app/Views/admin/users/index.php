@@ -36,7 +36,7 @@
                             <span class="badge bg-danger-subtle text-danger">Inactif</span>
                             <?php endif; ?>
                         </td>
-                        <td class="text-muted small"><?= $u['derniere_connexion'] ? date('d/m/Y H:i', strtotime($u['derniere_connexion'])) : 'Jamais' ?></td>
+                        <td class="text-muted small"><?= $u['last_login'] ? date('d/m/Y H:i', strtotime($u['last_login'])) : 'Jamais' ?></td>
                         <td class="text-end">
                             <div class="btn-group btn-group-sm">
                                 <a href="/admin/users/edit/<?= $u['id'] ?>" class="btn btn-outline-secondary"><i class="bi bi-pencil"></i></a>

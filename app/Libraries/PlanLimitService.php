@@ -24,7 +24,7 @@ class PlanLimitService
         }
 
         $plan = $this->db->table('subscription_plans')
-                         ->select('nom, max_medecins, max_patients')
+                         ->select('nom AS plan_nom, max_medecins, max_patients')
                          ->where('slug', $tenant['plan'])
                          ->get()
                          ->getRowArray();
