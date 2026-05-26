@@ -13,9 +13,9 @@ class App extends BaseConfig
     public array  $supportedLocales = ['fr', 'en'];
     public string $appTimezone      = 'Africa/Algiers';
     public string $charset          = 'UTF-8';
-    public bool   $forceGlobalSecureRequests = false;
+    public bool   $forceGlobalSecureRequests = true;
     public bool   $CSPEnabled        = false;
-    public string|array $proxyIPs   = [];
+    public string|array $proxyIPs   = ['172.16.0.0/12', '173.245.48.0/20', '103.21.244.0/22', '103.22.200.0/22', '103.31.4.0/22', '141.101.64.0/18', '108.162.192.0/18', '190.93.240.0/20', '188.114.96.0/20', '197.234.240.0/22', '198.41.128.0/17', '162.158.0.0/15', '104.16.0.0/13', '104.24.0.0/14', '172.64.0.0/13', '131.0.72.0/22'];
     public string $CSRFTokenName    = 'csrf_token_name';
     public string $CSRFHeaderName   = 'X-CSRF-TOKEN';
     public string $CSRFCookieName   = 'csrf_cookie_name';
@@ -23,11 +23,11 @@ class App extends BaseConfig
     public bool   $CSRFRegenerate   = true;
     public array  $CSRFExcludeURIs  = [];
     public string $CSRFSameSite     = 'Lax';
-    public string $cookiePrefix     = '';
-    public string $cookieDomain     = '';
+    public string $cookiePrefix     = '__Secure-';
+    public string $cookieDomain     = 'ikelyanecrm.com';
     public string $cookiePath       = '/';
-    public bool   $cookieSecure     = false;
-    public bool   $cookieHTTPOnly   = false;
+    public bool   $cookieSecure     = true;
+    public bool   $cookieHTTPOnly   = true;
     public string $cookieSameSite   = 'Lax';
     public string $salt             = '';
     public string $sessionDriver            = 'CodeIgniter\Session\Handlers\DatabaseHandler';
