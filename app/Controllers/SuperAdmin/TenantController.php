@@ -23,7 +23,7 @@ class TenantController extends BaseController
         ")->getResultArray();
 
         return view('superadmin/tenants/index', [
-            'title'   => 'Super Admin — Organisations',
+            'title'   => lang('SuperAdmin.orgs_manage'),
             'tenants' => $tenants,
         ]);
     }
@@ -44,7 +44,7 @@ class TenantController extends BaseController
         $plans     = $planModel->where('is_active', 1)->orderBy('ordre')->findAll();
 
         return view('superadmin/tenants/view', [
-            'title'    => 'Organisation — ' . $tenant['nom'],
+            'title'    => lang('SuperAdmin.view_org') . ' — ' . $tenant['nom'],
             'tenant'   => $tenant,
             'users'    => $users,
             'contacts' => $contacts,
@@ -81,7 +81,7 @@ class TenantController extends BaseController
     public function create(): string
     {
         return view('superadmin/tenants/create', [
-            'title' => 'Nouvelle organisation',
+            'title' => lang('SuperAdmin.new_org'),
         ]);
     }
 
@@ -144,7 +144,7 @@ class TenantController extends BaseController
         if (! $tenant) return redirect()->to('/superadmin/tenants')->with('error', 'Organisation introuvable.');
 
         return view('superadmin/tenants/edit', [
-            'title'  => 'Modifier — ' . $tenant['nom'],
+            'title'  => lang('SuperAdmin.edit_org') . ' — ' . $tenant['nom'],
             'tenant' => $tenant,
         ]);
     }

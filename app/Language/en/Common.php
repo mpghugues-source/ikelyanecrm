@@ -54,6 +54,18 @@ return [
     'next'        => 'Next',
     // Demo
     'demo_accounts' => 'Demo accounts',
+    // Messaging
+    'send'              => 'Send',
+    'recipient'         => 'Recipient',
+    'choose_recipient'  => '— Choose a recipient —',
+    'write_message'     => 'Write your message here...',
+    'from'              => 'From',
+    'to'            => 'To',
+    'subject'       => 'Subject',
+    'message'       => 'Message',
+    'reply'         => 'Reply',
+    'send_reply'    => 'Send reply',
+    'your_reply'    => 'Your reply...',
     // Extra
     'not_specified' => 'Not specified',
     'full_name'     => 'Full name',

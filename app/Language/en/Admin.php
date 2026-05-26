@@ -43,7 +43,11 @@ return [
     'won_label'           => 'Won',
     'total_label'         => 'Total',
 
+    // User management page titles
+    'user_management'     => 'User Management',
+
     // Billing
+    'billing_title'       => 'My Subscription',
     'no_payments'         => 'No payments recorded',
     'plan_users_contacts' => '10 users · 5,000 contacts',
     'plan_unlimited'      => 'Unlimited · All modules',

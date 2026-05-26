@@ -26,7 +26,7 @@ class MessageController extends BaseController
             : $this->model->getInbox($tenantId, $userId);
 
         return view('messages/index', [
-            'title'    => $box === 'sent' ? 'Messages envoyés' : 'Messagerie',
+            'title'    => $box === 'sent' ? lang('Nav.sent_messages') : lang('Nav.messages'),
             'messages' => $messages,
             'box'      => $box,
             'unread'   => $this->model->countUnread($tenantId, $userId),
@@ -68,7 +68,7 @@ class MessageController extends BaseController
         $toUserId      = (int)$this->request->getGet('to') ?: 0;
 
         return view('messages/create', [
-            'title'         => 'Nouveau message',
+            'title'         => lang('Nav.new_message'),
             'destinataires' => $destinataires,
             'to_user_id'    => $toUserId,
             'sujet'         => $this->request->getGet('sujet') ?? '',

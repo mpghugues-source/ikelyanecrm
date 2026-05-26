@@ -15,6 +15,9 @@ return [
     'settings'      => 'Paramètres',
     'profile'       => 'Mon profil',
     'messages'      => 'Messagerie',
+    'new_message'   => 'Nouveau message',
+    'sent_messages' => 'Messages envoyés',
+    'new_badge'     => 'Nouveau',
     'logout'        => 'Déconnexion',
     'subscription'  => 'Mon abonnement',
 

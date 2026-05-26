@@ -55,7 +55,7 @@ class StatsController extends BaseController
         ")->getRowArray();
 
         return view('superadmin/stats/index', [
-            'title'        => 'Statistiques — Super Admin',
+            'title'        => lang('SuperAdmin.stats_title'),
             'global'       => $global,
             'growth'       => $growth,
             'topTenants'   => $topTenants,

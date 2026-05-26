@@ -17,14 +17,14 @@ class UserController extends BaseController
     public function index(): string
     {
         return view('admin/users/index', [
-            'title' => 'Gestion des utilisateurs',
+            'title' => lang('Admin.user_management'),
             'users' => $this->userModel->getByTenant($this->getTenantId()),
         ]);
     }
 
     public function create(): string
     {
-        return view('admin/users/create', ['title' => 'Nouvel utilisateur']);
+        return view('admin/users/create', ['title' => lang('Admin.new_user')]);
     }
 
     public function store()
@@ -62,7 +62,7 @@ class UserController extends BaseController
         if (! $user || $user['tenant_id'] !== $this->getTenantId()) {
             return redirect()->to('/admin/users')->with('error', 'Utilisateur introuvable.');
         }
-        return view('admin/users/edit', ['title' => 'Modifier utilisateur', 'user' => $user]);
+        return view('admin/users/edit', ['title' => lang('Admin.edit_user'), 'user' => $user]);
     }
 
     public function update(int $id)

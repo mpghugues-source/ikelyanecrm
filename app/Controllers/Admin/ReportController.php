@@ -108,7 +108,7 @@ class ReportController extends BaseController
         $tauxPerte = $totalLeads > 0 ? round($totalPerdus / $totalLeads * 100) : 0;
 
         return view('reports/index', [
-            'title'            => 'Rapports & Statistiques',
+            'title'            => lang('Admin.reports_title'),
             'year'             => $year,
             'date_from'        => $dateFrom,
             'date_to'          => $dateTo,

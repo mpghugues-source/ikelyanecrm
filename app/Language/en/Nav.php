@@ -15,6 +15,9 @@ return [
     'settings'      => 'Settings',
     'profile'       => 'My Profile',
     'messages'      => 'Messages',
+    'new_message'   => 'New Message',
+    'sent_messages' => 'Sent Messages',
+    'new_badge'     => 'New',
     'logout'        => 'Logout',
     'subscription'  => 'My Subscription',
 

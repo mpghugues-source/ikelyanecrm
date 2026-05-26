@@ -43,7 +43,11 @@ return [
     'won_label'           => 'Gagnés',
     'total_label'         => 'Total',
 
+    // User management page titles
+    'user_management'     => 'Gestion des utilisateurs',
+
     // Billing
+    'billing_title'       => 'Mon abonnement',
     'no_payments'         => 'Aucun paiement enregistré',
     'plan_users_contacts' => '10 utilisateurs · 5 000 contacts',
     'plan_unlimited'      => 'Illimité · Tous les modules',

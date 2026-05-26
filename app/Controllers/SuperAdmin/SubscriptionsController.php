@@ -41,7 +41,7 @@ class SubscriptionsController extends BaseController
         $plans = $this->planModel->orderBy('ordre')->findAll();
 
         return view('superadmin/subscriptions/index', [
-            'title'   => 'Abonnements — Super Admin',
+            'title'   => lang('SuperAdmin.subscriptions_title'),
             'tenants' => $tenants,
             'stats'   => $stats,
             'plans'   => $plans,
@@ -52,7 +52,7 @@ class SubscriptionsController extends BaseController
     public function create(): string
     {
         return view('superadmin/subscriptions/create', [
-            'title' => 'Nouveau plan d\'abonnement',
+            'title' => lang('SuperAdmin.new_plan_title'),
         ]);
     }
 
@@ -102,7 +102,7 @@ class SubscriptionsController extends BaseController
         }
 
         return view('superadmin/subscriptions/edit', [
-            'title'    => 'Modifier le plan : ' . $plan['nom'],
+            'title'    => lang('SuperAdmin.edit_plan_title') . ' : ' . $plan['nom'],
             'plan'     => $plan,
             'features' => $features,
         ]);

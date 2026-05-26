@@ -12,7 +12,7 @@ class SettingsController extends BaseController
         $platformTenant = $db->table('tenants')->where('slug', 'ikelyanemed')->get()->getRowArray();
 
         return view('superadmin/settings/index', [
-            'title'          => 'Paramètres — Super Admin',
+            'title'          => lang('SuperAdmin.settings_title'),
             'platformTenant' => $platformTenant,
         ]);
     }

@@ -17,7 +17,7 @@ class ProfileController extends BaseController
     {
         $user = $this->userModel->find($this->getUserId());
         return view('profile/index', [
-            'title' => 'Mon profil',
+            'title' => lang('Nav.profile'),
             'user'  => $user,
         ]);
     }

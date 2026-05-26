@@ -28,7 +28,7 @@ class UsersController extends BaseController
         ];
 
         return view('superadmin/users/index', [
-            'title' => 'Utilisateurs — Super Admin',
+            'title' => lang('SuperAdmin.users_title'),
             'users' => $users,
             'stats' => $stats,
         ]);

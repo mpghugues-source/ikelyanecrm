@@ -37,7 +37,7 @@ class BillingController extends BaseController
         $currentPlan = $plans[$tenant['plan']] ?? $plans['starter'] ?? array_values($plans)[0];
 
         return view('admin/billing/index', [
-            'title'        => 'Mon abonnement',
+            'title'        => lang('Admin.billing_title'),
             'tenant'       => $tenant,
             'currentPlan'  => $currentPlan,
             'plans'        => $plans,

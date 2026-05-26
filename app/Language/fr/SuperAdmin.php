@@ -116,4 +116,14 @@ return [
     'premium'               => 'Premium',
     'active'                => 'Actif',
     'inactive'              => 'Inactif',
+
+    // Organization pages
+    'orgs_manage'           => 'Gestion des organisations',
+    'new_org'               => 'Nouvelle organisation',
+    'edit_org'              => 'Modifier organisation',
+    'view_org'              => 'Organisation',
+
+    // Plans
+    'new_plan_title'        => "Nouveau plan d'abonnement",
+    'edit_plan_title'       => 'Modifier le plan',
 ];

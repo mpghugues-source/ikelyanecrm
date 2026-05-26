@@ -40,7 +40,7 @@ class DashboardController extends BaseController
         $tenants = $tenantModel->orderBy('created_at', 'DESC')->findAll(10);
 
         return view('superadmin/dashboard', [
-            'title'           => 'Super Admin Dashboard',
+            'title'           => lang('SuperAdmin.dashboard_title'),
             'stats'           => $stats,
             'tenants'         => $tenants,
             'tenantsByMonth'  => $tenantsByMonth,

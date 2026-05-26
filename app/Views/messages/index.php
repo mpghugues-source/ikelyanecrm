@@ -8,7 +8,7 @@
         <?php endif; ?>
     </h1>
     <a href="/messages/create" class="btn btn-primary">
-        <i class="bi bi-pencil-square me-1"></i>Nouveau message
+        <i class="bi bi-pencil-square me-1"></i><?= lang('Nav.new_message') ?>
     </a>
 </div>
 
@@ -52,7 +52,7 @@
                     <tr class="<?= $unreadRow ? 'fw-bold' : '' ?>">
                         <td>
                             <?php if ($unreadRow): ?>
-                                <span class="badge bg-primary" style="font-size:.55rem;padding:3px 5px">Nouveau</span>
+                                <span class="badge bg-primary" style="font-size:.55rem;padding:3px 5px"><?= lang('Nav.new_badge') ?></span>
                             <?php else: ?>
                                 <i class="bi bi-envelope<?= $unreadRow ? '' : '-open' ?> text-muted"></i>
                             <?php endif; ?>
