@@ -41,8 +41,8 @@
                 if (!in_array($_role, ['super_admin', 'patient', null])) :
                     $_tenantId = (int) session()->get('tenant_id');
                     $_db = \Config\Database::connect();
-                    $_t  = $_db->table('tenants')->select('abonnement, expire_le')->where('id', $_tenantId)->get()->getRowArray();
-                    if ($_t && $_t['expire_le'] && $_t['abonnement'] !== 'gratuit') :
+                    $_t  = $_db->table('tenants')->select('plan, expire_le')->where('id', $_tenantId)->get()->getRowArray();
+                    if ($_t && $_t['expire_le'] && $_t['plan'] !== 'starter') :
                         $_daysLeft = (int) ceil((strtotime($_t['expire_le']) - time()) / 86400);
                         if ($_daysLeft <= 30) :
                 ?>
@@ -66,7 +66,7 @@
                 <div class="alert border-0 rounded-0 mb-0 d-flex align-items-center gap-3 alert-dismissible fade show" style="border-left:4px solid #1a56db !important;border-radius:0 !important;padding:12px 24px;background:#eff6ff">
                     <i class="bi bi-info-circle-fill flex-shrink-0" style="color:#1a56db;font-size:1.1rem"></i>
                     <div class="flex-grow-1" style="color:#1e40af;font-size:.9rem">
-                        Votre abonnement <strong><?= ucfirst($_t['abonnement']) ?></strong> expire dans <strong><?= $_daysLeft ?> jours</strong>.
+                        Votre abonnement <strong><?= ucfirst($_t['plan']) ?></strong> expire dans <strong><?= $_daysLeft ?> jours</strong>.
                         <a href="/abonnement/expire" style="color:#1a56db;font-weight:700;margin-left:8px">Renouveler →</a>
                     </div>
                     <button type="button" class="btn-close flex-shrink-0" data-bs-dismiss="alert"></button>
