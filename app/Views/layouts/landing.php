@@ -9,7 +9,7 @@
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-    <meta name="theme-color" content="#1a56db">
+    <meta name="theme-color" content="#059669">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="IkelyaneCRM">
@@ -21,10 +21,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a56db;
-            --primary-dark: #1344b7;
-            --secondary: #7c3aed;
-            --accent: #06b6d4;
+            --primary: #059669;
+            --primary-dark: #047857;
+            --secondary: #f97316;
+            --accent: #0891b2;
             --success: #10b981;
             --orange: #f97316;
             --dark: #0f172a;
@@ -49,21 +49,21 @@
         /* HERO */
         .hero-section {
             min-height: 100vh;
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0c1445 100%);
+            background: linear-gradient(135deg, #052e16 0%, #134e37 50%, #064e3b 100%);
             display: flex; align-items: center;
             position: relative; overflow: hidden; padding-top: 80px;
         }
         .hero-section::before {
             content: '';
             position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231a56db' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23059669' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
-        .hero-badge { background: rgba(26,86,219,0.2); border: 1px solid rgba(26,86,219,0.4); color: #93c5fd; padding: 6px 16px; border-radius: 50px; font-size: .85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
+        .hero-badge { background: rgba(5,150,105,0.25); border: 1px solid rgba(5,150,105,0.5); color: #6ee7b7; padding: 6px 16px; border-radius: 50px; font-size: .85rem; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
         .hero-title { font-size: 3.5rem; font-weight: 900; line-height: 1.1; color: #fff; }
-        .hero-title .highlight { background: linear-gradient(135deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-title .highlight { background: linear-gradient(135deg, #6ee7b7, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-subtitle { font-size: 1.2rem; color: #94a3b8; line-height: 1.7; }
         .btn-hero-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); border: none; border-radius: 12px; padding: 14px 32px; font-size: 1.05rem; font-weight: 700; color: #fff; transition: all .3s; }
-        .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(26,86,219,0.4); color: #fff; }
+        .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 40px rgba(5,150,105,0.4); color: #fff; }
         .btn-hero-secondary { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 14px 32px; font-size: 1.05rem; font-weight: 600; color: #fff; backdrop-filter: blur(10px); }
         .btn-hero-secondary:hover { background: rgba(255,255,255,0.2); color: #fff; }
         .hero-stats { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
@@ -73,20 +73,20 @@
         .mockup-header { background: rgba(255,255,255,0.08); border-radius: 10px; padding: 12px 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
         .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
         .mockup-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
-        .mockup-stat { font-size: 1.6rem; font-weight: 800; color: #60a5fa; }
+        .mockup-stat { font-size: 1.6rem; font-weight: 800; color: #6ee7b7; }
         .mockup-label { font-size: .75rem; color: #94a3b8; }
 
         /* MODULE TABS */
         .modules-section { padding: 100px 0; background: #fff; }
         .module-tab { cursor: pointer; border-radius: 16px; padding: 20px 24px; border: 2px solid var(--gray-200); transition: all .3s; background: #fff; }
-        .module-tab:hover, .module-tab.active { border-color: var(--primary); background: #f0f5ff; }
+        .module-tab:hover, .module-tab.active { border-color: var(--primary); background: #ecfdf5; }
         .module-tab .tab-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
         .module-tab .tab-title { font-weight: 700; color: var(--dark); margin-bottom: 4px; }
         .module-tab .tab-desc { font-size: .85rem; color: #64748b; }
 
         /* FEATURES */
         .features-section { padding: 100px 0; background: var(--gray-100); }
-        .section-badge { background: rgba(26,86,219,0.1); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: .85rem; font-weight: 600; display: inline-block; margin-bottom: 16px; }
+        .section-badge { background: rgba(5,150,105,0.1); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: .85rem; font-weight: 600; display: inline-block; margin-bottom: 16px; }
         .section-title { font-size: 2.5rem; font-weight: 800; color: var(--dark); line-height: 1.2; }
         .feature-card { background: #fff; border-radius: 20px; padding: 32px; border: 1px solid var(--gray-200); transition: all .3s; height: 100%; }
         .feature-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); border-color: var(--primary); }
@@ -133,8 +133,8 @@
         .testimonial-stars { color: #f59e0b; }
 
         /* CTA */
-        .cta-section { padding: 100px 0; background: linear-gradient(135deg, #0f172a, #1e1b4b); position: relative; overflow: hidden; }
-        .cta-section::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(26,86,219,0.15) 0%, transparent 60%); }
+        .cta-section { padding: 100px 0; background: linear-gradient(135deg, #052e16, #134e37); position: relative; overflow: hidden; }
+        .cta-section::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(5,150,105,0.2) 0%, transparent 60%); }
 
         /* FOOTER */
         .footer { background: #0f172a; padding: 60px 0 30px; }
@@ -245,7 +245,7 @@
                         <div class="col-6">
                             <div class="mockup-card">
                                 <div style="color:#94a3b8;font-size:.75rem;margin-bottom:4px"><i class="bi bi-funnel me-1"></i>Leads actifs</div>
-                                <div class="mockup-stat" style="color:#a78bfa">142</div>
+                                <div class="mockup-stat" style="color:#fb923c">142</div>
                                 <div class="mockup-label">32 en négociation</div>
                             </div>
                         </div>
@@ -254,7 +254,7 @@
                         <div style="color:#94a3b8;font-size:.75rem;margin-bottom:12px"><i class="bi bi-graph-up me-1"></i>Pipeline commercial</div>
                         <div style="display:flex;gap:4px;align-items:flex-end;height:60px">
                             <?php $bars = [35,55,40,75,50,90,65,100,60,80,45,85]; foreach($bars as $h): ?>
-                            <div style="flex:1;background:linear-gradient(180deg,#1a56db,#7c3aed);border-radius:4px 4px 0 0;height:<?= $h ?>%;opacity:.8"></div>
+                            <div style="flex:1;background:linear-gradient(180deg,#059669,#f97316);border-radius:4px 4px 0 0;height:<?= $h ?>%;opacity:.8"></div>
                             <?php endforeach; ?>
                         </div>
                     </div>
@@ -297,7 +297,7 @@
             <div class="col-lg-6 fade-up">
                 <div class="rounded-4 p-4 h-100" style="background:linear-gradient(135deg,#eff6ff,#f5f3ff);border:2px solid #dbeafe">
                     <div class="d-flex align-items-center gap-3 mb-4">
-                        <div style="width:56px;height:56px;background:linear-gradient(135deg,#1a56db,#7c3aed);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff">
+                        <div style="width:56px;height:56px;background:linear-gradient(135deg,#059669,#f97316);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff">
                             <i class="bi bi-gear-fill"></i>
                         </div>
                         <div>
@@ -307,8 +307,8 @@
                     </div>
                     <div class="row g-3">
                         <?php foreach([
-                            ['bi-people-fill','#dbeafe','#1a56db','Contacts','Base contacts complète avec segmentation et historique'],
-                            ['bi-funnel-fill','#ede9fe','#7c3aed','Leads & Pipeline','Suivi des opportunités avec vue Kanban et scoring'],
+                            ['bi-people-fill','#d1fae5','#059669','Contacts','Base contacts complète avec segmentation et historique'],
+                            ['bi-funnel-fill','#ffedd5','#f97316','Leads & Pipeline','Suivi des opportunités avec vue Kanban et scoring'],
                             ['bi-megaphone-fill','#d1fae5','#059669','Campagnes','Campagnes marketing multicanal avec suivi des résultats'],
                             ['bi-chat-dots-fill','#fef3c7','#d97706','Support & Cases','Gestion des tickets et demandes clients en temps réel'],
                         ] as $f): ?>
@@ -386,8 +386,8 @@
         <div class="row g-4">
             <?php
             $features = [
-                ['icon'=>'bi-people-fill','color'=>'#dbeafe','icon_color'=>'#1a56db','title'=>'Gestion des Contacts','desc'=>'Base de contacts enrichie avec historique complet, segmentation, tags et notes d\'activité.'],
-                ['icon'=>'bi-funnel-fill','color'=>'#ede9fe','icon_color'=>'#7c3aed','title'=>'Pipeline de ventes','desc'=>'Vue Kanban des opportunités, scoring automatique des leads et prévisions de revenus.'],
+                ['icon'=>'bi-people-fill','color'=>'#d1fae5','icon_color'=>'#059669','title'=>'Gestion des Contacts','desc'=>'Base de contacts enrichie avec historique complet, segmentation, tags et notes d\'activité.'],
+                ['icon'=>'bi-funnel-fill','color'=>'#ffedd5','icon_color'=>'#f97316','title'=>'Pipeline de ventes','desc'=>'Vue Kanban des opportunités, scoring automatique des leads et prévisions de revenus.'],
                 ['icon'=>'bi-megaphone','color'=>'#d1fae5','icon_color'=>'#059669','title'=>'Campagnes marketing','desc'=>'Créez et suivez des campagnes email, mesurez les conversions et optimisez vos actions.'],
                 ['icon'=>'bi-box-seam','color'=>'#fef3c7','icon_color'=>'#d97706','title'=>'Gestion des stocks','desc'=>'Suivi des niveaux de stock, mouvements d\'entrée/sortie, alertes et valorisation.'],
                 ['icon'=>'bi-graph-up-arrow','color'=>'#fce7f3','icon_color'=>'#db2777','title'=>'Tableaux de bord','desc'=>'Indicateurs temps réel : chiffre d\'affaires, pipeline, taux de conversion, performance équipe.'],
@@ -442,7 +442,7 @@
                     <div class="row g-3">
                         <div class="col-12">
                             <div class="bg-white rounded-3 p-3 d-flex align-items-center gap-3 shadow-sm">
-                                <div style="width:40px;height:40px;background:linear-gradient(135deg,#1a56db,#7c3aed);border-radius:10px;display:flex;align-items:center;justify-content:center">
+                                <div style="width:40px;height:40px;background:linear-gradient(135deg,#059669,#f97316);border-radius:10px;display:flex;align-items:center;justify-content:center">
                                     <i class="bi bi-person-plus text-white"></i>
                                 </div>
                                 <div>
@@ -454,14 +454,14 @@
                         </div>
                         <div class="col-12">
                             <div class="bg-white rounded-3 p-3 d-flex align-items-center gap-3 shadow-sm">
-                                <div style="width:40px;height:40px;background:linear-gradient(135deg,#7c3aed,#a855f7);border-radius:10px;display:flex;align-items:center;justify-content:center">
+                                <div style="width:40px;height:40px;background:linear-gradient(135deg,#f97316,#fbbf24);border-radius:10px;display:flex;align-items:center;justify-content:center">
                                     <i class="bi bi-funnel text-white"></i>
                                 </div>
                                 <div>
                                     <div style="font-weight:700;font-size:.9rem">Lead passé en négociation</div>
                                     <div class="text-muted" style="font-size:.8rem">Contrat ERP — 12 500 € · Probabilité 75%</div>
                                 </div>
-                                <span class="ms-auto badge" style="background:#dbeafe;color:#1a56db;font-size:.75rem">Chaud</span>
+                                <span class="ms-auto badge" style="background:#ffedd5;color:#f97316;font-size:.75rem">Chaud</span>
                             </div>
                         </div>
                         <div class="col-12">
@@ -622,7 +622,7 @@
             <!-- Infos -->
             <div class="col-lg-4 fade-up">
                 <div class="d-flex align-items-start gap-3 mb-4">
-                    <div class="feature-icon flex-shrink-0" style="background:#dbeafe;color:#1a56db;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem">
+                    <div class="feature-icon flex-shrink-0" style="background:#d1fae5;color:#059669;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem">
                         <i class="bi bi-envelope-fill"></i>
                     </div>
                     <div>
@@ -640,7 +640,7 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-start gap-3">
-                    <div class="feature-icon flex-shrink-0" style="background:#ede9fe;color:#7c3aed;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem">
+                    <div class="feature-icon flex-shrink-0" style="background:#ffedd5;color:#f97316;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem">
                         <i class="bi bi-globe2"></i>
                     </div>
                     <div>
@@ -682,7 +682,7 @@
                             <textarea name="message" class="form-control rounded-3" rows="4" placeholder="Décrivez votre besoin..." required style="border:2px solid #e2e8f0;resize:none"></textarea>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn w-100 fw-700 py-3 rounded-3" style="background:linear-gradient(135deg,#1a56db,#7c3aed);color:#fff;font-weight:700;border:none">
+                            <button type="submit" class="btn w-100 fw-700 py-3 rounded-3" style="background:linear-gradient(135deg,#059669,#f97316);color:#fff;font-weight:700;border:none">
                                 <i class="bi bi-send me-2"></i>Envoyer le message
                             </button>
                         </div>
