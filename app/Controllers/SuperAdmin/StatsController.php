@@ -19,25 +19,26 @@ class StatsController extends BaseController
             GROUP BY mois ORDER BY mois ASC
         ")->getResultArray();
 
-        // Top tenants par nombre de RDV
+        // Top tenants par nombre de leads
         $topTenants = $db->query("
-            SELECT t.nom, t.ville, t.abonnement, t.couleur,
-                COUNT(r.id) as nb_rdv,
-                COUNT(DISTINCT r.patient_id) as nb_patients
+            SELECT t.nom, t.ville, t.plan, t.couleur,
+                COUNT(DISTINCT l.id) as nb_leads,
+                COUNT(DISTINCT c.id) as nb_contacts
             FROM tenants t
-            LEFT JOIN rendez_vous r ON r.tenant_id = t.id
+            LEFT JOIN crm_leads l ON l.tenant_id = t.id
+            LEFT JOIN crm_contacts c ON c.tenant_id = t.id
             GROUP BY t.id
-            ORDER BY nb_rdv DESC
+            ORDER BY nb_leads DESC
             LIMIT 5
         ")->getResultArray();
 
-        // RDV par mois (6 derniers mois) — toute la plateforme
-        $rdvMensuel = $db->query("
-            SELECT DATE_FORMAT(date_rdv, '%Y-%m') as mois,
+        // Leads par mois (6 derniers mois) — toute la plateforme
+        $leadsMensuel = $db->query("
+            SELECT DATE_FORMAT(created_at, '%Y-%m') as mois,
                    COUNT(*) as nb,
-                   SUM(CASE WHEN statut='termine' THEN 1 ELSE 0 END) as termines
-            FROM rendez_vous
-            WHERE date_rdv >= DATE_SUB(NOW(), INTERVAL 6 MONTH)
+                   SUM(CASE WHEN statut='won' THEN 1 ELSE 0 END) as gagnes
+            FROM crm_leads
+            WHERE created_at >= DATE_SUB(NOW(), INTERVAL 6 MONTH)
             GROUP BY mois ORDER BY mois ASC
         ")->getResultArray();
 
@@ -46,20 +47,19 @@ class StatsController extends BaseController
             SELECT
                 (SELECT COUNT(*) FROM tenants WHERE actif=1) as tenants_actifs,
                 (SELECT COUNT(*) FROM users WHERE role != 'super_admin') as total_users,
-                (SELECT COUNT(*) FROM patients) as total_patients,
-                (SELECT COUNT(*) FROM rendez_vous) as total_rdv,
-                (SELECT COUNT(*) FROM rendez_vous WHERE statut='termine') as rdv_termines,
-                (SELECT COUNT(*) FROM medecins WHERE actif=1) as total_medecins,
-                (SELECT COUNT(*) FROM ordonnances) as total_ordonnances,
-                (SELECT COALESCE(SUM(total),0) FROM factures WHERE statut='paye') as revenus_plateforme
+                (SELECT COUNT(*) FROM crm_contacts) as total_contacts,
+                (SELECT COUNT(*) FROM crm_leads) as total_leads,
+                (SELECT COUNT(*) FROM crm_leads WHERE statut='won') as leads_gagnes,
+                (SELECT COUNT(*) FROM crm_campaigns) as total_campagnes,
+                (SELECT COALESCE(SUM(valeur_estimee),0) FROM crm_leads WHERE statut='won') as valeur_gagnee
         ")->getRowArray();
 
         return view('superadmin/stats/index', [
-            'title'      => 'Statistiques — Super Admin',
-            'global'     => $global,
-            'growth'     => $growth,
-            'topTenants' => $topTenants,
-            'rdvMensuel' => $rdvMensuel,
+            'title'        => 'Statistiques — Super Admin',
+            'global'       => $global,
+            'growth'       => $growth,
+            'topTenants'   => $topTenants,
+            'leadsMensuel' => $leadsMensuel,
         ]);
     }
 }

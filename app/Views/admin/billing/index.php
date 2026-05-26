@@ -6,8 +6,8 @@
 </div>
 
 <?php
-$plan     = $tenant['abonnement'] ?? 'gratuit';
-$isPaid   = in_array($plan, ['basic', 'premium']);
+$plan     = $tenant['plan'] ?? 'starter';
+$isPaid   = in_array($plan, ['pro', 'enterprise']);
 $expireTs = $tenant['expire_le'] ? strtotime($tenant['expire_le']) : null;
 $expired  = $expireTs && $expireTs < time();
 ?>

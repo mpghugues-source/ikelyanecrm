@@ -109,14 +109,14 @@
                 <div class="row g-2">
                     <div class="col-6">
                         <div style="background:#f8fafc;border-radius:12px;padding:16px;text-align:center">
-                            <div style="font-size:1.6rem;font-weight:800;color:#1a56db"><?= $patients ?></div>
-                            <div style="font-size:.75rem;color:#94a3b8;font-weight:600"><?= lang('SuperAdmin.patients_col') ?></div>
+                            <div style="font-size:1.6rem;font-weight:800;color:#1a56db"><?= $contacts ?></div>
+                            <div style="font-size:.75rem;color:#94a3b8;font-weight:600">Contacts</div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div style="background:#f8fafc;border-radius:12px;padding:16px;text-align:center">
-                            <div style="font-size:1.6rem;font-weight:800;color:#7c3aed"><?= $rdv ?></div>
-                            <div style="font-size:.75rem;color:#94a3b8;font-weight:600"><?= lang('SuperAdmin.appointments_col') ?></div>
+                            <div style="font-size:1.6rem;font-weight:800;color:#7c3aed"><?= $leads ?></div>
+                            <div style="font-size:.75rem;color:#94a3b8;font-weight:600">Leads</div>
                         </div>
                     </div>
                     <div class="col-6">
@@ -135,17 +135,17 @@
                     <?= csrf_field() ?>
                     <div class="mb-3">
                         <label class="form-label" style="font-size:.85rem;font-weight:600"><?= lang('SuperAdmin.plan_label') ?></label>
-                        <select name="abonnement" class="form-select form-select-sm" style="border-radius:8px">
+                        <select name="plan" class="form-select form-select-sm" style="border-radius:8px">
                             <?php if (!empty($plans)): ?>
                                 <?php foreach($plans as $pl): ?>
-                                <option value="<?= esc($pl['slug']) ?>" <?= $tenant['abonnement'] === $pl['slug'] ? 'selected' : '' ?>>
+                                <option value="<?= esc($pl['slug']) ?>" <?= $tenant['plan'] === $pl['slug'] ? 'selected' : '' ?>>
                                     <?= esc($pl['nom']) ?> — <?= number_format($pl['prix_mensuel'],0,',',' ') ?> DA/mois
                                 </option>
                                 <?php endforeach; ?>
                             <?php else: ?>
-                                <option value="gratuit" <?= $tenant['abonnement']==='gratuit'?'selected':'' ?>><?= lang('SuperAdmin.plan_free') ?></option>
-                                <option value="basic" <?= $tenant['abonnement']==='basic'?'selected':'' ?>><?= lang('SuperAdmin.plan_basic') ?></option>
-                                <option value="premium" <?= $tenant['abonnement']==='premium'?'selected':'' ?>><?= lang('SuperAdmin.plan_premium') ?></option>
+                                <option value="starter" <?= $tenant['plan']==='starter'?'selected':'' ?>>Starter</option>
+                                <option value="pro" <?= $tenant['plan']==='pro'?'selected':'' ?>>Pro</option>
+                                <option value="enterprise" <?= $tenant['plan']==='enterprise'?'selected':'' ?>>Enterprise</option>
                             <?php endif; ?>
                         </select>
                     </div>

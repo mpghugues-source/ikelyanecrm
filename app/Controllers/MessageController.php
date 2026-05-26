@@ -134,7 +134,7 @@ class MessageController extends BaseController
     /** Liste des utilisateurs auxquels l'utilisateur courant peut écrire */
     private function getDestinataires(int $tenantId, int $userId): array
     {
-        $role = $this->getRole();
+        $role = session()->get('role');
         $db   = $this->model->db;
 
         if ($role === 'patient') {

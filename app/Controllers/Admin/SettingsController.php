@@ -5,8 +5,6 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\TenantModel;
 use App\Models\ServiceModel;
-use App\Models\SpecialtyModel;
-use App\Models\MedicationModel;
 
 class SettingsController extends BaseController
 {
@@ -15,11 +13,14 @@ class SettingsController extends BaseController
         $tenantModel = new TenantModel();
         $tenant = $tenantModel->find($this->getTenantId());
 
+        $db = \Config\Database::connect();
+        $specialites = $db->table('specialites')->orderBy('nom')->get()->getResultArray();
+
         return view('admin/settings/index', [
-            'title'      => 'Paramètres',
-            'tenant'     => $tenant,
-            'services'   => (new ServiceModel())->getByTenant($this->getTenantId()),
-            'specialites'=> (new SpecialtyModel())->getAll(),
+            'title'       => 'Paramètres',
+            'tenant'      => $tenant,
+            'services'    => (new ServiceModel())->getByTenant($this->getTenantId()),
+            'specialites' => $specialites,
         ]);
     }
 
@@ -33,7 +34,7 @@ class SettingsController extends BaseController
             'telephone' => $post['telephone'] ?? null,
             'email'     => $post['email'] ?? null,
             'ville'     => $post['ville'] ?? null,
-            'couleur'   => $post['couleur'] ?? '#0d6efd',
+            'couleur'   => $post['couleur'] ?? '#059669',
         ]);
         return redirect()->back()->with('success', 'Paramètres enregistrés.');
     }

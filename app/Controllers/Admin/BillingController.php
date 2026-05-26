@@ -34,7 +34,7 @@ class BillingController extends BaseController
             $daysLeft = (int) ceil((strtotime($tenant['expire_le']) - time()) / 86400);
         }
 
-        $currentPlan = $plans[$tenant['abonnement']] ?? $plans['gratuit'] ?? array_values($plans)[0];
+        $currentPlan = $plans[$tenant['plan']] ?? $plans['starter'] ?? array_values($plans)[0];
 
         return view('admin/billing/index', [
             'title'        => 'Mon abonnement',

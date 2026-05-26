@@ -54,7 +54,7 @@
                         <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('SuperAdmin.plan')) ?></th>
                         <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('SuperAdmin.expiration')) ?></th>
                         <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('SuperAdmin.users_col')) ?></th>
-                        <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('SuperAdmin.patients_col')) ?></th>
+                        <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem">CONTACTS</th>
                         <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('Common.status')) ?></th>
                         <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('Common.actions')) ?></th>
                     </tr>
@@ -77,7 +77,7 @@
                         <div style="font-size:.85rem"><?= esc($t['email']??'—') ?></div>
                         <div class="text-muted" style="font-size:.78rem"><?= esc($t['telephone']??'') ?></div>
                     </td>
-                    <td><span class="badge-plan badge-<?= $t['abonnement'] ?>"><?= lang('SuperAdmin.'.($t['abonnement']==='gratuit'?'plan_free':($t['abonnement']==='basic'?'plan_basic':'plan_premium'))) ?></span></td>
+                    <td><span class="badge-plan badge-<?= $t['plan'] ?>"><?= ucfirst($t['plan']) ?></span></td>
                     <td style="font-size:.85rem">
                         <?php if($t['expire_le']): ?>
                             <?php $diff = (new DateTime($t['expire_le']))->diff(new DateTime())->days; ?>
@@ -89,7 +89,7 @@
                         <?php endif; ?>
                     </td>
                     <td style="font-weight:600;text-align:center"><?= $t['nb_users'] ?></td>
-                    <td style="font-weight:600;text-align:center"><?= $t['nb_patients'] ?></td>
+                    <td style="font-weight:600;text-align:center"><?= $t['nb_contacts'] ?></td>
                     <td>
                         <?php if($t['actif']): ?>
                         <span style="background:#d1fae5;color:#059669;padding:3px 10px;border-radius:50px;font-size:.75rem;font-weight:700"><?= lang('SuperAdmin.active') ?></span>

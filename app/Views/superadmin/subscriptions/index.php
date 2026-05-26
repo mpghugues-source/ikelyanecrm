@@ -40,20 +40,20 @@
     <div class="row g-3 mb-4">
         <div class="col-6 col-lg-3">
             <div class="stat-card text-center">
-                <div style="font-size:1.8rem;font-weight:800;color:#64748b"><?= $stats['gratuit'] ?></div>
-                <div style="font-size:.8rem;color:#94a3b8;font-weight:600"><?= strtoupper(lang('SuperAdmin.plan_free')) ?></div>
+                <div style="font-size:1.8rem;font-weight:800;color:#64748b"><?= $stats['starter'] ?></div>
+                <div style="font-size:.8rem;color:#94a3b8;font-weight:600">STARTER</div>
             </div>
         </div>
         <div class="col-6 col-lg-3">
             <div class="stat-card text-center">
-                <div style="font-size:1.8rem;font-weight:800;color:#1a56db"><?= $stats['basic'] ?></div>
-                <div style="font-size:.8rem;color:#94a3b8;font-weight:600"><?= strtoupper(lang('SuperAdmin.plan_basic')) ?></div>
+                <div style="font-size:1.8rem;font-weight:800;color:#1a56db"><?= $stats['pro'] ?></div>
+                <div style="font-size:.8rem;color:#94a3b8;font-weight:600">PRO</div>
             </div>
         </div>
         <div class="col-6 col-lg-3">
             <div class="stat-card text-center">
-                <div style="font-size:1.8rem;font-weight:800;color:#7c3aed"><?= $stats['premium'] ?></div>
-                <div style="font-size:.8rem;color:#94a3b8;font-weight:600"><?= strtoupper(lang('SuperAdmin.plan_premium')) ?></div>
+                <div style="font-size:1.8rem;font-weight:800;color:#7c3aed"><?= $stats['enterprise'] ?></div>
+                <div style="font-size:.8rem;color:#94a3b8;font-weight:600">ENTERPRISE</div>
             </div>
         </div>
         <div class="col-6 col-lg-3">
@@ -95,8 +95,8 @@
                     <div style="font-size:.85rem;color:#64748b"><?= number_format($pl['prix_annuel'],0,',',' ') ?> DA / an</div>
                 </div>
                 <div class="mb-3 small text-muted">
-                    <div><i class="bi bi-person-badge me-1"></i>Max médecins : <strong><?= $pl['max_medecins'] ?: 'Illimité' ?></strong></div>
-                    <div><i class="bi bi-people me-1"></i>Max patients : <strong><?= $pl['max_patients'] ?: 'Illimité' ?></strong></div>
+                    <div><i class="bi bi-person-badge me-1"></i>Max utilisateurs : <strong><?= $pl['max_medecins'] ?: 'Illimité' ?></strong></div>
+                    <div><i class="bi bi-people me-1"></i>Max contacts : <strong><?= $pl['max_patients'] ?: 'Illimité' ?></strong></div>
                 </div>
                 <?php if (!empty($featuresArr)): ?>
                 <ul class="small text-muted list-unstyled mb-3 flex-fill">
@@ -120,7 +120,7 @@
     <?php endif; ?>
 
     <!-- Tableau des tenants -->
-    <h5 class="mb-3" style="font-weight:700">Cliniques abonnées</h5>
+    <h5 class="mb-3" style="font-weight:700">Organisations abonnées</h5>
     <div class="table-card">
         <div class="table-responsive">
             <table class="table table-hover align-middle" style="font-size:.88rem">
@@ -130,7 +130,7 @@
                         <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('SuperAdmin.plan')) ?></th>
                         <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('SuperAdmin.expiration')) ?></th>
                         <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('SuperAdmin.users_col')) ?></th>
-                        <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('SuperAdmin.patients_col')) ?></th>
+                        <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem">CONTACTS</th>
                         <th class="border-0 py-3" style="font-weight:700;color:#64748b;font-size:.8rem"><?= strtoupper(lang('SuperAdmin.action')) ?></th>
                     </tr>
                 </thead>
@@ -157,7 +157,7 @@
                             </div>
                         </div>
                     </td>
-                    <td><span class="badge-plan badge-<?= $t['abonnement'] ?>"><?= lang('SuperAdmin.'.($t['abonnement']==='gratuit'?'plan_free':($t['abonnement']==='basic'?'plan_basic':'plan_premium'))) ?></span></td>
+                    <td><span class="badge-plan badge-<?= $t['plan'] ?>"><?= ucfirst($t['plan']) ?></span></td>
                     <td style="font-size:.85rem">
                         <span style="color:<?= $expireSoon ? '#ef4444' : '#374151' ?>;font-weight:<?= $expireSoon ? '700' : '400' ?>">
                             <?= $expireLabel ?>
@@ -165,7 +165,7 @@
                         </span>
                     </td>
                     <td style="text-align:center;font-weight:600"><?= $t['nb_users'] ?></td>
-                    <td style="text-align:center;font-weight:600"><?= $t['nb_patients'] ?></td>
+                    <td style="text-align:center;font-weight:600"><?= $t['nb_contacts'] ?></td>
                     <td>
                         <a href="/superadmin/tenants/view/<?= $t['id'] ?>" class="btn btn-sm btn-light border" style="border-radius:8px;font-size:.8rem">
                             <i class="bi bi-pencil me-1"></i><?= lang('SuperAdmin.manage_btn') ?>

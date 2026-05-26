@@ -22,15 +22,15 @@ class SubscriptionsController extends BaseController
         $tenants = $db->query("
             SELECT t.*,
                 (SELECT COUNT(*) FROM users u WHERE u.tenant_id = t.id) as nb_users,
-                (SELECT COUNT(*) FROM patients p WHERE p.tenant_id = t.id) as nb_patients
+                (SELECT COUNT(*) FROM crm_contacts c WHERE c.tenant_id = t.id) as nb_contacts
             FROM tenants t
-            ORDER BY t.abonnement DESC, t.expire_le ASC
+            ORDER BY t.plan DESC, t.expire_le ASC
         ")->getResultArray();
 
         $stats = [
-            'gratuit'  => count(array_filter($tenants, fn($t) => $t['abonnement'] === 'gratuit')),
-            'basic'    => count(array_filter($tenants, fn($t) => $t['abonnement'] === 'basic')),
-            'premium'  => count(array_filter($tenants, fn($t) => $t['abonnement'] === 'premium')),
+            'starter'  => count(array_filter($tenants, fn($t) => $t['plan'] === 'starter')),
+            'pro'      => count(array_filter($tenants, fn($t) => $t['plan'] === 'pro')),
+            'enterprise' => count(array_filter($tenants, fn($t) => $t['plan'] === 'enterprise')),
             'expires_soon' => count(array_filter($tenants, function($t) {
                 if (!$t['expire_le']) return false;
                 $diff = (new \DateTime($t['expire_le']))->diff(new \DateTime())->days;

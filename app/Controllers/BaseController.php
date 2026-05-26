@@ -31,4 +31,9 @@ abstract class BaseController extends Controller
     {
         return (int) session()->get('medecin_id');
     }
+
+    protected function getRole(): string
+    {
+        return session()->get('role') ?? '';
+    }
 }

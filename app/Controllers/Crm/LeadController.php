@@ -39,8 +39,8 @@ class LeadController extends BaseController
     public function create(): string
     {
         $tid = session()->get('tenant_id');
-        $contacts = (new ContactModel())->where('tenant_id', $tid)->where('statut','active')->findAll();
-        $users    = (new UserModel())->where('tenant_id', $tid)->where('statut','active')->findAll();
+        $contacts = (new ContactModel())->where('tenant_id', $tid)->findAll();
+        $users    = (new UserModel())->where('tenant_id', $tid)->where('actif', 1)->findAll();
         return view('crm/leads/form', ['lead' => null, 'contacts' => $contacts, 'users' => $users]);
     }
 
