@@ -35,8 +35,8 @@
                         </select>
                     </div>
                     <div class="col-md-3"><label class="form-label small">Description <span class="text-danger">*</span></label><input type="text" name="description[]" class="form-control form-control-sm" required></div>
-                    <div class="col-md-1"><label class="form-label small">Qté</label><input type="number" name="quantite[]" class="form-control form-control-sm qty-input" step="0.001" min="0" value="1" oninput="calcTotal()"></div>
-                    <div class="col-md-1"><label class="form-label small">Unité</label><input type="text" name="unite[]" class="form-control form-control-sm unit-input" value="pièce"></div>
+                    <div class="col-md-1"><label class="form-label small"><?= lang('Admin.qty') ?></label><input type="number" name="quantite[]" class="form-control form-control-sm qty-input" step="0.001" min="0" value="1" oninput="calcTotal()"></div>
+                    <div class="col-md-1"><label class="form-label small"><?= lang('Admin.unit') ?></label><input type="text" name="unite[]" class="form-control form-control-sm unit-input"></div>
                     <div class="col-md-2"><label class="form-label small">Prix unit. (DZD)</label><input type="number" name="prix_unitaire[]" class="form-control form-control-sm price-input" step="0.01" min="0" value="0" oninput="calcTotal()"></div>
                     <div class="col-md-1"><label class="form-label small">Total HT</label><input type="text" class="form-control form-control-sm line-total" readonly></div>
                     <div class="col-md-1"><button type="button" class="btn btn-sm btn-outline-danger remove-line" style="margin-top:1.5rem"><i class="bi bi-trash"></i></button></div>

@@ -1,14 +1,16 @@
 <?= $this->extend('layouts/main') ?>
 <?= $this->section('content') ?>
 
+<?php $locale = session()->get('locale') ?? 'fr'; ?>
+
 <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
     <div>
-        <h4 class="mb-0 fw-bold">Rapports & Statistiques</h4>
+        <h4 class="mb-0 fw-bold"><?= lang('Admin.reports_title') ?></h4>
         <small class="text-muted">
             <?php if ($useCustomDates): ?>
-                Période : <?= date('d/m/Y', strtotime($sqlDateFrom)) ?> — <?= date('d/m/Y', strtotime($sqlDateTo)) ?>
+                <?= lang('Admin.period_label') ?> : <?= date('d/m/Y', strtotime($sqlDateFrom)) ?> — <?= date('d/m/Y', strtotime($sqlDateTo)) ?>
             <?php else: ?>
-                Analyse de l'activité — Année <?= $year ?>
+                <?= lang('Admin.activity_year') ?> <?= $year ?>
             <?php endif; ?>
         </small>
     </div>
@@ -17,14 +19,14 @@
 <!-- Filtres -->
 <div class="card border-0 shadow-sm rounded-4 mb-4">
     <div class="card-header bg-white d-flex justify-content-between align-items-center" style="cursor:pointer" data-bs-toggle="collapse" data-bs-target="#filterPanel">
-        <span class="fw-semibold"><i class="bi bi-funnel me-2 text-primary"></i>Filtres</span>
+        <span class="fw-semibold"><i class="bi bi-funnel me-2 text-primary"></i><?= lang('Common.filter') ?></span>
         <i class="bi bi-chevron-down text-muted"></i>
     </div>
     <div class="collapse <?= ($date_from || $date_to) ? 'show' : '' ?>" id="filterPanel">
         <div class="card-body">
             <form method="GET" class="row g-3 align-items-end">
                 <div class="col-md-2">
-                    <label class="form-label small fw-semibold text-muted text-uppercase" style="font-size:.72rem">Année</label>
+                    <label class="form-label small fw-semibold text-muted text-uppercase" style="font-size:.72rem"><?= lang('Common.date') ?></label>
                     <select name="year" class="form-select form-select-sm">
                         <?php for($y = date('Y'); $y >= date('Y')-4; $y--): ?>
                         <option value="<?= $y ?>" <?= $y == $year ? 'selected' : '' ?>><?= $y ?></option>
@@ -32,11 +34,11 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small fw-semibold text-muted text-uppercase" style="font-size:.72rem">Date début</label>
+                    <label class="form-label small fw-semibold text-muted text-uppercase" style="font-size:.72rem"><?= $locale === 'en' ? 'From' : 'Date début' ?></label>
                     <input type="date" name="date_from" class="form-control form-control-sm" value="<?= esc($date_from) ?>">
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label small fw-semibold text-muted text-uppercase" style="font-size:.72rem">Date fin</label>
+                    <label class="form-label small fw-semibold text-muted text-uppercase" style="font-size:.72rem"><?= $locale === 'en' ? 'To' : 'Date fin' ?></label>
                     <input type="date" name="date_to" class="form-control form-control-sm" value="<?= esc($date_to) ?>">
                 </div>
                 <div class="col-md-2 d-flex gap-2">
@@ -52,10 +54,10 @@
 <div class="row g-3 mb-4">
     <?php
     $kpis = [
-        ['label'=>'Leads total','value'=>number_format($totalLeads),'icon'=>'bi-funnel-fill','color'=>'#dbeafe','icon_color'=>'#1a56db','sub'=>'Période sélectionnée'],
-        ['label'=>'Leads gagnés','value'=>number_format($totalGagnes),'icon'=>'bi-trophy-fill','color'=>'#d1fae5','icon_color'=>'#059669','sub'=>'Statut "Won"'],
-        ['label'=>'Taux de conversion','value'=>$tauxConversion.'%','icon'=>'bi-graph-up-arrow','color'=>'#ede9fe','icon_color'=>'#7c3aed','sub'=>'Gagnés / total'],
-        ['label'=>'Contacts total','value'=>number_format($totalContacts),'icon'=>'bi-people-fill','color'=>'#fef3c7','icon_color'=>'#d97706','sub'=>'Tous inscrits'],
+        ['label'=>lang('Admin.leads_total'),'value'=>number_format($totalLeads),'icon'=>'bi-funnel-fill','color'=>'#dbeafe','icon_color'=>'#1a56db','sub'=>lang('Admin.period_selected')],
+        ['label'=>lang('Admin.leads_won'),'value'=>number_format($totalGagnes),'icon'=>'bi-trophy-fill','color'=>'#d1fae5','icon_color'=>'#059669','sub'=>'Won'],
+        ['label'=>lang('Admin.conv_rate'),'value'=>$tauxConversion.'%','icon'=>'bi-graph-up-arrow','color'=>'#ede9fe','icon_color'=>'#7c3aed','sub'=>lang('Admin.won_label').' / '.lang('Admin.total_label')],
+        ['label'=>lang('Admin.contacts_total'),'value'=>number_format($totalContacts),'icon'=>'bi-people-fill','color'=>'#fef3c7','icon_color'=>'#d97706','sub'=>$locale === 'en' ? 'All registered' : 'Tous inscrits'],
     ];
     foreach($kpis as $k): ?>
     <div class="col-6 col-lg-3">
@@ -81,10 +83,10 @@
     <div class="col-lg-8">
         <div class="card border-0 shadow-sm rounded-4 p-4">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h6 class="fw-bold mb-0">Leads <?= $year ?></h6>
+                <h6 class="fw-bold mb-0"><?= lang('Admin.leads_year') ?> <?= $year ?></h6>
                 <div class="d-flex gap-3" style="font-size:.8rem">
-                    <span><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#1a56db;margin-right:4px"></span>Total</span>
-                    <span><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#10b981;margin-right:4px"></span>Gagnés</span>
+                    <span><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#1a56db;margin-right:4px"></span><?= lang('Admin.total_label') ?></span>
+                    <span><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#10b981;margin-right:4px"></span><?= lang('Admin.won_label') ?></span>
                 </div>
             </div>
             <canvas id="leadsChart" height="100"></canvas>
@@ -94,12 +96,19 @@
     <!-- Statuts leads (donut) -->
     <div class="col-lg-4">
         <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
-            <h6 class="fw-bold mb-3">Répartition pipeline</h6>
+            <h6 class="fw-bold mb-3"><?= lang('Admin.pipeline_dist') ?></h6>
             <canvas id="pipelineChart" height="160"></canvas>
             <div class="mt-3">
                 <?php
                 $statutColors = ['new'=>'#94a3b8','qualified'=>'#1a56db','proposition'=>'#d97706','negotiation'=>'#7c3aed','won'=>'#059669','lost'=>'#dc2626'];
-                $statutLabels = ['new'=>'Nouveau','qualified'=>'Qualifié','proposition'=>'Proposition','negotiation'=>'Négociation','won'=>'Gagné','lost'=>'Perdu'];
+                $statutLabels = [
+                    'new'         => lang('Crm.stage_new'),
+                    'qualified'   => lang('Crm.stage_qualified'),
+                    'proposition' => lang('Crm.stage_proposition'),
+                    'negotiation' => lang('Crm.stage_negotiation'),
+                    'won'         => lang('Crm.stage_won'),
+                    'lost'        => lang('Crm.stage_lost'),
+                ];
                 foreach($leadsStatuts as $s):
                     $c = $statutColors[$s['statut']] ?? '#94a3b8';
                 ?>
@@ -117,7 +126,7 @@
     <!-- Nouveaux contacts par mois -->
     <div class="col-lg-5">
         <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
-            <h6 class="fw-bold mb-3">Nouveaux contacts par mois</h6>
+            <h6 class="fw-bold mb-3"><?= lang('Admin.new_contacts_month') ?></h6>
             <canvas id="contactsChart" height="140"></canvas>
         </div>
     </div>
@@ -125,20 +134,20 @@
     <!-- Performance commerciaux -->
     <div class="col-lg-7">
         <div class="card border-0 shadow-sm rounded-4 p-4">
-            <h6 class="fw-bold mb-3">Performance par commercial</h6>
+            <h6 class="fw-bold mb-3"><?= lang('Admin.commercial_perf') ?></h6>
             <div class="table-responsive">
                 <table class="table table-hover align-middle" style="font-size:.88rem">
                     <thead style="background:#f8fafc">
                         <tr>
-                            <th class="border-0 py-2 ps-3" style="font-weight:700;color:#64748b;font-size:.78rem">COMMERCIAL</th>
-                            <th class="border-0 py-2 text-center" style="font-weight:700;color:#64748b;font-size:.78rem">LEADS</th>
-                            <th class="border-0 py-2 text-center" style="font-weight:700;color:#64748b;font-size:.78rem">GAGNÉS</th>
-                            <th class="border-0 py-2 text-end pe-3" style="font-weight:700;color:#64748b;font-size:.78rem">VALEUR</th>
+                            <th class="border-0 py-2 ps-3" style="font-weight:700;color:#64748b;font-size:.78rem"><?= strtoupper(lang('Admin.role_commercial')) ?></th>
+                            <th class="border-0 py-2 text-center" style="font-weight:700;color:#64748b;font-size:.78rem"><?= strtoupper(lang('Crm.leads')) ?></th>
+                            <th class="border-0 py-2 text-center" style="font-weight:700;color:#64748b;font-size:.78rem"><?= strtoupper(lang('Admin.won_label')) ?></th>
+                            <th class="border-0 py-2 text-end pe-3" style="font-weight:700;color:#64748b;font-size:.78rem"><?= strtoupper(lang('Common.amount')) ?></th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php if(empty($commerciauxPerf)): ?>
-                    <tr><td colspan="4" class="text-center text-muted py-3">Aucun utilisateur actif</td></tr>
+                    <tr><td colspan="4" class="text-center text-muted py-3"><?= lang('Admin.no_active_users') ?></td></tr>
                     <?php else: ?>
                     <?php foreach($commerciauxPerf as $m):
                         $taux = $m['nb_leads'] > 0 ? round($m['nb_gagnes']/$m['nb_leads']*100) : 0;
@@ -172,7 +181,7 @@
 <div class="row g-3">
     <div class="col-md-4">
         <div class="card border-0 shadow-sm rounded-4 p-4 text-center">
-            <div style="font-size:.8rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:12px">Taux de conversion</div>
+            <div style="font-size:.8rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:12px"><?= lang('Admin.conv_rate') ?></div>
             <div style="position:relative;display:inline-block;width:100px;height:100px">
                 <svg viewBox="0 0 36 36" style="width:100%;height:100%">
                     <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -184,12 +193,12 @@
                     <text x="18" y="20.35" text-anchor="middle" style="font-size:8px;font-weight:800;fill:#0f172a"><?= $tauxConversion ?>%</text>
                 </svg>
             </div>
-            <div class="text-muted mt-2" style="font-size:.85rem">Leads gagnés / total</div>
+            <div class="text-muted mt-2" style="font-size:.85rem"><?= lang('Admin.won_label') ?> / <?= lang('Admin.total_label') ?></div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="card border-0 shadow-sm rounded-4 p-4 text-center">
-            <div style="font-size:.8rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:12px">Taux de perte</div>
+            <div style="font-size:.8rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:12px"><?= $locale === 'en' ? 'Loss Rate' : 'Taux de perte' ?></div>
             <div style="position:relative;display:inline-block;width:100px;height:100px">
                 <svg viewBox="0 0 36 36" style="width:100%;height:100%">
                     <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -201,15 +210,15 @@
                     <text x="18" y="20.35" text-anchor="middle" style="font-size:8px;font-weight:800;fill:#0f172a"><?= $tauxPerte ?>%</text>
                 </svg>
             </div>
-            <div class="text-muted mt-2" style="font-size:.85rem">Leads perdus / total</div>
+            <div class="text-muted mt-2" style="font-size:.85rem"><?= lang('Crm.stage_lost') ?> / <?= lang('Admin.total_label') ?></div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="card border-0 shadow-sm rounded-4 p-4 text-center">
-            <div style="font-size:.8rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:12px">Valeur pipeline</div>
+            <div style="font-size:.8rem;font-weight:700;color:#94a3b8;text-transform:uppercase;margin-bottom:12px"><?= lang('Crm.pipeline_value') ?></div>
             <?php $valeurMoyenne = $totalLeads > 0 ? round(($totals['valeur_totale'] ?? 0) / $totalLeads) : 0; ?>
             <div style="font-size:2.2rem;font-weight:900;color:#059669;margin:20px 0"><?= number_format($valeurMoyenne,0,',',' ') ?></div>
-            <div class="text-muted" style="font-size:.85rem">Valeur moyenne / lead (DA)</div>
+            <div class="text-muted" style="font-size:.85rem"><?= $locale === 'en' ? 'Avg. value / lead (DA)' : 'Valeur moyenne / lead (DA)' ?></div>
         </div>
     </div>
 </div>
@@ -217,7 +226,12 @@
 <?= $this->endSection() ?>
 <?= $this->section('scripts') ?>
 <script>
-const months = ['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Aoû','Sep','Oct','Nov','Déc'];
+<?php
+$monthsEn = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+$monthsFr = ['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Aoû','Sep','Oct','Nov','Déc'];
+$months = $locale === 'en' ? $monthsEn : $monthsFr;
+?>
+const months = <?= json_encode($months) ?>;
 
 const leadsData = <?= json_encode(array_values($leadsByMonth)) ?>;
 new Chart(document.getElementById('leadsChart'), {
@@ -226,7 +240,7 @@ new Chart(document.getElementById('leadsChart'), {
         labels: months,
         datasets: [
             {
-                label: 'Total leads',
+                label: '<?= lang('Admin.total_label') ?>',
                 data: leadsData.map(d => d.total_leads || 0),
                 backgroundColor: 'rgba(26,86,219,0.15)',
                 borderColor: '#1a56db',
@@ -234,7 +248,7 @@ new Chart(document.getElementById('leadsChart'), {
                 borderRadius: 6,
             },
             {
-                label: 'Gagnés',
+                label: '<?= lang('Admin.won_label') ?>',
                 data: leadsData.map(d => d.leads_gagnes || 0),
                 backgroundColor: 'rgba(5,150,105,0.8)',
                 borderColor: '#059669',
@@ -275,7 +289,7 @@ new Chart(document.getElementById('contactsChart'), {
     data: {
         labels: months,
         datasets: [{
-            label: 'Nouveaux contacts',
+            label: '<?= lang('Admin.new_contacts_month') ?>',
             data: contactsData,
             borderColor: '#f97316',
             backgroundColor: 'rgba(249,115,22,0.08)',

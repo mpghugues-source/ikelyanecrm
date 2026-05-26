@@ -42,7 +42,7 @@
                             <input type="email" name="email" class="form-control" value="<?= esc($contact['email'] ?? '') ?>">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label fw-semibold"><?= lang('Crm.notes') ?> — Tél.</label>
+                            <label class="form-label fw-semibold"><?= lang('Common.phone') ?></label>
                             <input type="text" name="telephone" class="form-control" value="<?= esc($contact['telephone'] ?? '') ?>">
                         </div>
                         <div class="col-md-6">
@@ -70,7 +70,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-semibold"><?= lang('Crm.country') ?></label>
-                            <input type="text" name="pays" class="form-control" value="<?= esc($contact['pays'] ?? 'Algérie') ?>">
+                            <input type="text" name="pays" class="form-control" value="<?= esc($contact['pays'] ?? '') ?>">
                         </div>
                         <div class="col-12">
                             <label class="form-label fw-semibold"><?= lang('Crm.address') ?></label>
@@ -94,11 +94,11 @@
             <div class="card-body">
                 <h6 class="fw-semibold mb-3"><i class="bi bi-info-circle text-primary me-2"></i>Guide</h6>
                 <ul class="list-unstyled small text-muted">
-                    <li class="mb-2"><span class="badge bg-warning-subtle text-warning me-1"><?= lang('Crm.type_lead') ?></span><?= lang('Crm.type_lead') ?> — prospect non encore qualifié</li>
+                    <li class="mb-2"><span class="badge bg-warning-subtle text-warning me-1"><?= lang('Crm.type_lead') ?></span><?= lang('Crm.type_lead') ?> — <?= lang('Admin.lead_unqualified') ?></li>
                     <li class="mb-2"><span class="badge bg-primary-subtle text-primary me-1"><?= lang('Crm.type_contact') ?></span>Contact commercial actif</li>
                     <li class="mb-2"><span class="badge bg-info-subtle text-info me-1"><?= lang('Crm.type_patient') ?></span>Patient de la clinique</li>
                     <li class="mb-2"><span class="badge bg-secondary-subtle text-secondary me-1"><?= lang('Crm.type_supplier') ?></span>Fournisseur / prestataire</li>
-                    <li><span class="badge bg-success-subtle text-success me-1"><?= lang('Crm.type_partner') ?></span>Partenaire stratégique</li>
+                    <li><span class="badge bg-success-subtle text-success me-1"><?= lang('Crm.type_partner') ?></span><?= lang('Admin.strategic_partner') ?></li>
                 </ul>
             </div>
         </div>

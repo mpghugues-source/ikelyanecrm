@@ -2,6 +2,7 @@
 <?php $this->section('title'); ?><?= esc($order['numero']) ?><?php $this->endSection(); ?>
 
 <?php $this->section('content'); ?>
+<?php $locale = session()->get('locale') ?? 'fr'; ?>
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h1 class="h4 mb-0 fw-bold"><?= esc($order['numero']) ?></h1>
@@ -13,7 +14,7 @@
         $sc = $stColors[$order['statut']] ?? 'secondary';
         ?>
         <span class="badge bg-<?= $sc ?> fs-6"><?= lang('Erp.status_'.$order['statut']) ?></span>
-        <a href="/erp/purchase-orders" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Retour</a>
+        <a href="/erp/purchase-orders" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i><?= lang('Common.back') ?></a>
     </div>
 </div>
 
@@ -21,7 +22,7 @@
     <div class="col-lg-4">
         <div class="card border-0 shadow-sm">
             <div class="card-body">
-                <h6 class="fw-semibold mb-3 text-muted text-uppercase small">Fournisseur</h6>
+                <h6 class="fw-semibold mb-3 text-muted text-uppercase small"><?= lang('Admin.supplier_section') ?></h6>
                 <?php if ($supplier): ?>
                 <div class="fw-bold"><?= esc($supplier['nom']) ?></div>
                 <?php if ($supplier['adresse']): ?><div class="text-muted small"><?= esc($supplier['adresse']) ?></div><?php endif; ?>
@@ -41,10 +42,10 @@
                     <div class="d-flex gap-2">
                         <?php if ($order['statut'] === 'draft'): ?>
                         <input type="hidden" name="statut" value="sent">
-                        <button class="btn btn-sm btn-primary flex-grow-1"><i class="bi bi-send me-1"></i>Envoyer</button>
+                        <button class="btn btn-sm btn-primary flex-grow-1"><i class="bi bi-send me-1"></i><?= lang('Erp.status_sent') ?></button>
                         <?php else: ?>
                         <input type="hidden" name="statut" value="received">
-                        <button class="btn btn-sm btn-success flex-grow-1"><i class="bi bi-check me-1"></i>Marquer reçu</button>
+                        <button class="btn btn-sm btn-success flex-grow-1"><i class="bi bi-check me-1"></i><?= lang('Admin.mark_received') ?></button>
                         <?php endif; ?>
                     </div>
                 </form>
@@ -58,7 +59,7 @@
                 <div class="table-responsive">
                     <table class="table mb-0">
                         <thead class="table-light">
-                            <tr><th>Description</th><th>Qté</th><th>Unité</th><th>Prix unit.</th><th>Total HT</th></tr>
+                            <tr><th><?= lang('Common.description') ?></th><th><?= lang('Admin.qty') ?></th><th><?= lang('Admin.unit') ?></th><th><?= $locale === 'en' ? 'Unit price' : 'Prix unit.' ?></th><th><?= lang('Erp.subtotal') ?></th></tr>
                         </thead>
                         <tbody>
                             <?php foreach ($items as $li): ?>

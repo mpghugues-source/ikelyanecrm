@@ -37,4 +37,12 @@ return [
     'erp_suppliers' => 'Suppliers',
     'erp_po'        => 'Purchase Orders',
     'erp_projects'  => 'Projects',
+
+    // Legacy / patient portal
+    'invoices'          => 'Invoices',
+    'my_invoices'       => 'My Invoices',
+    'my_appointments'   => 'My Appointments',
+    'book_appointment'  => 'Book Appointment',
+    'prescriptions'     => 'Prescriptions',
+    'notifications'     => 'Notifications',
 ];

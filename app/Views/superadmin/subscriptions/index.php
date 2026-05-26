@@ -66,9 +66,9 @@
 
     <!-- Plans d'abonnement -->
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h5 class="mb-0" style="font-weight:700">Plans d'abonnement</h5>
+        <h5 class="mb-0" style="font-weight:700"><?= lang('Admin.plans_title') ?></h5>
         <a href="/superadmin/subscriptions/plans/create" class="btn btn-sm btn-primary" style="border-radius:10px">
-            <i class="bi bi-plus-lg me-1"></i>Nouveau plan
+            <i class="bi bi-plus-lg me-1"></i><?= lang('Admin.new_plan') ?>
         </a>
     </div>
     <?php if (!empty($plans)): ?>
@@ -107,7 +107,7 @@
                 <?php endif; ?>
                 <div class="d-flex gap-2 mt-auto pt-2 border-top">
                     <a href="/superadmin/subscriptions/plans/edit/<?= $pl['id'] ?>" class="btn btn-sm btn-light border flex-fill" style="border-radius:8px;font-size:.8rem">
-                        <i class="bi bi-pencil me-1"></i>Modifier
+                        <i class="bi bi-pencil me-1"></i><?= lang('Admin.edit_plan') ?>
                     </a>
                     <a href="/superadmin/subscriptions/plans/toggle/<?= $pl['id'] ?>" class="btn btn-sm btn-light border" style="border-radius:8px;font-size:.8rem" title="<?= $pl['is_active'] ? 'Désactiver' : 'Activer' ?>">
                         <i class="bi bi-<?= $pl['is_active'] ? 'pause' : 'play' ?>-circle"></i>
@@ -120,7 +120,7 @@
     <?php endif; ?>
 
     <!-- Tableau des tenants -->
-    <h5 class="mb-3" style="font-weight:700">Organisations abonnées</h5>
+    <h5 class="mb-3" style="font-weight:700"><?= lang('Admin.orgs_title') ?></h5>
     <div class="table-card">
         <div class="table-responsive">
             <table class="table table-hover align-middle" style="font-size:.88rem">

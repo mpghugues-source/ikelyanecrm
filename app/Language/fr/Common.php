@@ -67,4 +67,10 @@ return [
     'with'          => 'avec',
     'i_accept'      => "J'accepte les",
     'and'           => 'et la',
+    'summary'       => 'Résumé',
+    'type'          => 'Type',
+    'description'   => 'Description',
+    'amount'        => 'Montant',
+    'new_password'  => 'Nouveau mot de passe',
+    'leave_empty'   => 'laisser vide pour ne pas changer',
 ];

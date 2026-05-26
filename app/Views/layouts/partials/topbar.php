@@ -60,17 +60,17 @@
             <div class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 p-0" style="width:340px;overflow:hidden" id="notifDropdown">
                 <div class="d-flex justify-content-between align-items-center px-3 py-2" style="background:#f8fafc;border-bottom:1px solid #e2e8f0">
                     <span class="fw-bold" style="font-size:.9rem"><?= lang('Nav.notifications', [], null, 'Notifications') ?></span>
-                    <button class="btn btn-link btn-sm text-muted p-0" onclick="markAllRead()" style="font-size:.8rem"><?= $locale === 'en' ? 'Mark all read' : 'Tout marquer lu' ?></button>
+                    <button class="btn btn-link btn-sm text-muted p-0" onclick="markAllRead()" style="font-size:.8rem"><?= lang('Admin.mark_all_read') ?></button>
                 </div>
                 <div id="notifList" style="max-height:360px;overflow-y:auto">
                     <div class="text-center text-muted py-4" style="font-size:.85rem">
                         <i class="bi bi-bell-slash" style="font-size:1.5rem;opacity:.4;display:block;margin-bottom:8px"></i>
-                        <?= $locale === 'en' ? 'No notifications' : 'Aucune notification' ?>
+                        <?= lang('Admin.no_notifications') ?>
                     </div>
                 </div>
                 <div style="border-top:1px solid #e2e8f0;padding:8px 12px;text-align:center">
                     <a href="/notifications" style="font-size:.82rem;color:#1a56db;text-decoration:none;font-weight:600">
-                        <?= $locale === 'en' ? 'View all notifications' : 'Voir toutes les notifications' ?>
+                        <?= lang('Admin.view_all_notif') ?>
                     </a>
                 </div>
             </div>
@@ -88,7 +88,7 @@
             <ul class="dropdown-menu dropdown-menu-end shadow-sm mt-1">
                 <li><h6 class="dropdown-header"><?= esc(session()->get('prenom') . ' ' . session()->get('nom')) ?></h6></li>
                 <li><hr class="dropdown-divider my-1"></li>
-                <li><a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="bi bi-person me-2"></i><?= $locale === 'en' ? 'My profile' : 'Mon profil' ?></a></li>
+                <li><a class="dropdown-item" href="<?= base_url('profile') ?>"><i class="bi bi-person me-2"></i><?= lang('Nav.profile') ?></a></li>
                 <?php if (in_array(session()->get('role'), ['admin','super_admin'])): ?>
                 <li><a class="dropdown-item" href="<?= base_url('admin/settings') ?>"><i class="bi bi-gear me-2"></i><?= lang('Nav.settings') ?></a></li>
                 <?php endif; ?>

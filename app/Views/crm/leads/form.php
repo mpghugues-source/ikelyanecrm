@@ -31,7 +31,7 @@
                 <div class="col-md-6">
                     <label class="form-label fw-semibold"><?= lang('Crm.assigned_to') ?></label>
                     <select name="assigned_to" class="form-select">
-                        <option value="">— Non assigné —</option>
+                        <option value=""><?= lang('Admin.unassigned') ?></option>
                         <?php foreach ($users as $u): ?>
                         <option value="<?= $u['id'] ?>" <?= ($lead['assigned_to']??'') == $u['id'] ? 'selected' : '' ?>><?= esc($u['prenom'].' '.$u['nom']) ?></option>
                         <?php endforeach; ?>

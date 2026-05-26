@@ -185,7 +185,7 @@
             </tr>
             <?php endforeach; ?>
             <?php if (empty($tenants)): ?>
-            <tr><td colspan="7" class="text-center" style="color:#64748b;padding:30px">Aucune organisation pour le moment</td></tr>
+            <tr><td colspan="7" class="text-center" style="color:#64748b;padding:30px"><?= lang('Admin.no_orgs') ?></td></tr>
             <?php endif; ?>
             </tbody>
         </table>

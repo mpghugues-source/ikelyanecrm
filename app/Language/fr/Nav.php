@@ -37,4 +37,12 @@ return [
     'erp_suppliers' => 'Fournisseurs',
     'erp_po'        => 'Bons de Commande',
     'erp_projects'  => 'Projets',
+
+    // Legacy / portail patient
+    'invoices'          => 'Factures',
+    'my_invoices'       => 'Mes factures',
+    'my_appointments'   => 'Mes rendez-vous',
+    'book_appointment'  => 'Prendre RDV',
+    'prescriptions'     => 'Ordonnances',
+    'notifications'     => 'Notifications',
 ];

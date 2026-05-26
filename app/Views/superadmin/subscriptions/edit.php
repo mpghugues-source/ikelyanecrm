@@ -21,6 +21,7 @@
 </head>
 <body>
 <?= view('superadmin/partials/sidebar', ['activeNav' => 'subscriptions']) ?>
+<?php $locale = session()->get('locale') ?? 'fr'; ?>
 <div class="sa-main">
     <div class="d-flex align-items-center gap-3 mb-4">
         <a href="/superadmin/subscriptions" class="btn btn-sm btn-light border"><i class="bi bi-arrow-left"></i></a>
@@ -38,56 +39,56 @@
             <?= csrf_field() ?>
             <div class="row g-3">
                 <div class="col-md-6">
-                    <label class="form-label fw-semibold">Nom du plan <span class="text-danger">*</span></label>
+                    <label class="form-label fw-semibold"><?= lang('SuperAdmin.plan_label') ?> <span class="text-danger">*</span></label>
                     <input type="text" name="nom" class="form-control" value="<?= esc(old('nom', $plan['nom'])) ?>" required>
                 </div>
                 <div class="col-md-6">
-                    <label class="form-label fw-semibold">Identifiant (slug) <span class="text-danger">*</span></label>
+                    <label class="form-label fw-semibold">Slug <span class="text-danger">*</span></label>
                     <input type="text" name="slug" class="form-control" value="<?= esc(old('slug', $plan['slug'])) ?>" required
-                           pattern="[a-z0-9_-]+" title="Minuscules, chiffres, tirets uniquement">
+                           pattern="[a-z0-9_-]+">
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label fw-semibold">Prix mensuel (DA) <span class="text-danger">*</span></label>
+                    <label class="form-label fw-semibold"><?= $locale === 'en' ? 'Monthly price (DA)' : 'Prix mensuel (DA)' ?> <span class="text-danger">*</span></label>
                     <input type="number" step="0.01" name="prix_mensuel" class="form-control" value="<?= esc(old('prix_mensuel', $plan['prix_mensuel'])) ?>" min="0" required>
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label fw-semibold">Prix annuel (DA) <span class="text-danger">*</span></label>
+                    <label class="form-label fw-semibold"><?= $locale === 'en' ? 'Annual price (DA)' : 'Prix annuel (DA)' ?> <span class="text-danger">*</span></label>
                     <input type="number" step="0.01" name="prix_annuel" class="form-control" value="<?= esc(old('prix_annuel', $plan['prix_annuel'])) ?>" min="0" required>
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label fw-semibold">Max médecins</label>
+                    <label class="form-label fw-semibold"><?= lang('SuperAdmin.users_col') ?> (max)</label>
                     <input type="number" name="max_medecins" class="form-control" value="<?= esc(old('max_medecins', $plan['max_medecins'])) ?>" min="0">
-                    <div class="form-text">0 = illimité</div>
+                    <div class="form-text">0 = <?= $locale === 'en' ? 'unlimited' : 'illimité' ?></div>
                 </div>
                 <div class="col-md-3">
-                    <label class="form-label fw-semibold">Max patients</label>
+                    <label class="form-label fw-semibold">Contacts (max)</label>
                     <input type="number" name="max_patients" class="form-control" value="<?= esc(old('max_patients', $plan['max_patients'])) ?>" min="0">
-                    <div class="form-text">0 = illimité</div>
+                    <div class="form-text">0 = <?= $locale === 'en' ? 'unlimited' : 'illimité' ?></div>
                 </div>
                 <div class="col-md-9">
-                    <label class="form-label fw-semibold">Fonctionnalités incluses</label>
+                    <label class="form-label fw-semibold"><?= $locale === 'en' ? 'Included features' : 'Fonctionnalités incluses' ?></label>
                     <textarea name="features" class="form-control" rows="5"><?= esc(old('features', $features)) ?></textarea>
-                    <div class="form-text">Une fonctionnalité par ligne.</div>
+                    <div class="form-text"><?= $locale === 'en' ? 'One feature per line.' : 'Une fonctionnalité par ligne.' ?></div>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label fw-semibold">Ordre d'affichage</label>
+                    <label class="form-label fw-semibold"><?= $locale === 'en' ? 'Display order' : "Ordre d'affichage" ?></label>
                     <input type="number" name="ordre" class="form-control" value="<?= esc(old('ordre', $plan['ordre'])) ?>" min="0">
                 </div>
                 <div class="col-md-1 d-flex align-items-end">
                     <div class="form-check form-switch">
                         <input class="form-check-input" type="checkbox" name="is_active" value="1" id="isActive"
                                <?= old('is_active', $plan['is_active']) ? 'checked' : '' ?>>
-                        <label class="form-check-label fw-semibold" for="isActive">Actif</label>
+                        <label class="form-check-label fw-semibold" for="isActive"><?= lang('Common.active') ?></label>
                     </div>
                 </div>
                 <div class="col-12 d-flex gap-2 pt-2">
                     <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-check-lg me-1"></i>Enregistrer les modifications
+                        <i class="bi bi-check-lg me-1"></i><?= lang('Admin.save_plan') ?>
                     </button>
-                    <a href="/superadmin/subscriptions" class="btn btn-outline-secondary">Annuler</a>
+                    <a href="/superadmin/subscriptions" class="btn btn-outline-secondary"><?= lang('Common.cancel') ?></a>
                     <a href="/superadmin/subscriptions/plans/delete/<?= $plan['id'] ?>" class="btn btn-outline-danger ms-auto"
-                       onclick="return confirm('Supprimer ce plan ? Cette action est irréversible.')">
-                        <i class="bi bi-trash me-1"></i>Supprimer
+                       onclick="return confirm('<?= lang('Admin.delete_plan_confirm') ?>')">
+                        <i class="bi bi-trash me-1"></i><?= lang('Admin.delete_plan') ?>
                     </a>
                 </div>
             </div>

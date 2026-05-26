@@ -7,7 +7,7 @@
         <h1 class="h4 mb-0 fw-bold"><?= lang('Erp.movement') ?></h1>
         <small class="text-muted"><?= esc($item['code']) ?> — <?= esc($item['nom']) ?></small>
     </div>
-    <a href="/erp/inventory" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i>Retour</a>
+    <a href="/erp/inventory" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i><?= lang('Common.back') ?></a>
 </div>
 <div class="row g-4">
     <div class="col-lg-4">
@@ -31,7 +31,7 @@
                     <?= csrf_field() ?>
                     <div class="row g-3">
                         <div class="col-md-4">
-                            <label class="form-label fw-semibold">Type <span class="text-danger">*</span></label>
+                            <label class="form-label fw-semibold"><?= lang('Common.type') ?> <span class="text-danger">*</span></label>
                             <select name="type" class="form-select" required>
                                 <option value="in"><?= lang('Erp.movement_type_in') ?></option>
                                 <option value="out"><?= lang('Erp.movement_type_out') ?></option>
@@ -40,7 +40,7 @@
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label fw-semibold">Quantité <span class="text-danger">*</span></label>
+                            <label class="form-label fw-semibold"><?= lang('Erp.stock_qty') ?> <span class="text-danger">*</span></label>
                             <input type="number" name="quantite" class="form-control" step="0.001" min="0" required>
                         </div>
                         <div class="col-md-4">
@@ -48,12 +48,12 @@
                             <input type="number" name="prix_unit" class="form-control" step="0.01" value="<?= $item['prix_achat'] ?>">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label fw-semibold">Référence</label>
+                            <label class="form-label fw-semibold"><?= lang('Erp.reference') ?></label>
                             <input type="text" name="reference" class="form-control" placeholder="BC-2024-001, PO-...">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-semibold"><?= lang('Erp.reason') ?></label>
-                            <input type="text" name="motif" class="form-control" placeholder="Réception commande, Consommation...">
+                            <input type="text" name="motif" class="form-control">
                         </div>
                         <div class="col-12">
                             <label class="form-label fw-semibold"><?= lang('Erp.notes') ?></label>

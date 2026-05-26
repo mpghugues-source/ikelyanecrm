@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="<?= session()->get('locale') ?? 'fr' ?>">
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= esc($title) ?></title>
@@ -23,57 +23,47 @@
 </head>
 <body>
 <div class="sa-sidebar">
-    <div class="sa-brand"><div class="sa-brand-name">IkelyaneMed</div><span class="sa-brand-badge">SUPER ADMIN</span></div>
-    <a href="/superadmin/dashboard" class="sa-nav-link"><i class="bi bi-speedometer2"></i>Dashboard</a>
-    <a href="/superadmin/tenants" class="sa-nav-link"><i class="bi bi-building"></i>Cliniques</a>
-    <a href="/superadmin/users" class="sa-nav-link"><i class="bi bi-people"></i>Utilisateurs</a>
-    <a href="/superadmin/subscriptions" class="sa-nav-link"><i class="bi bi-credit-card"></i>Abonnements</a>
-    <a href="/superadmin/stats" class="sa-nav-link"><i class="bi bi-graph-up"></i>Statistiques</a>
-    <a href="/superadmin/settings" class="sa-nav-link active"><i class="bi bi-gear"></i>Paramètres</a>
-    <div style="position:absolute;bottom:24px;left:0;right:0;padding:0 24px">
-        <a href="/logout" class="sa-nav-link" style="color:#ef4444"><i class="bi bi-box-arrow-left"></i>Déconnexion</a>
-    </div>
-</div>
+<?= view('superadmin/partials/sidebar', ['activeNav' => 'settings']) ?>
 <div class="sa-main">
     <?php if(session()->getFlashdata('success')): ?>
     <div class="alert alert-success border-0 rounded-3 mb-3"><i class="bi bi-check-circle me-2"></i><?= session()->getFlashdata('success') ?></div>
     <?php endif; ?>
 
     <div class="mb-4">
-        <h4 class="mb-0" style="font-weight:800">Paramètres de la plateforme</h4>
-        <small class="text-muted">Configuration générale d'IkelyaneMed</small>
+        <h4 class="mb-0" style="font-weight:800"><?= lang('Admin.platform_settings') ?></h4>
+        <small class="text-muted"><?= lang('Admin.platform_subtitle') ?></small>
     </div>
 
     <div class="row g-3">
         <div class="col-lg-7">
             <!-- Informations plateforme -->
             <div class="form-card">
-                <div class="section-title"><i class="bi bi-globe me-2 text-primary"></i>Informations plateforme</div>
+                <div class="section-title"><i class="bi bi-globe me-2 text-primary"></i><?= lang('SuperAdmin.platform_info') ?></div>
                 <form action="/superadmin/settings/save" method="POST">
                     <?= csrf_field() ?>
                     <div class="row g-3">
                         <div class="col-12">
-                            <label class="form-label" style="font-size:.85rem;font-weight:600">Nom de la plateforme</label>
+                            <label class="form-label" style="font-size:.85rem;font-weight:600"><?= lang('SuperAdmin.platform_name') ?></label>
                             <input type="text" name="platform_nom" class="form-control" style="border-radius:10px"
-                                   value="<?= esc($platformTenant['nom'] ?? 'IkelyaneMed') ?>">
+                                   value="<?= esc($platformTenant['nom'] ?? 'IkelyaneCRM') ?>">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label" style="font-size:.85rem;font-weight:600">Email de contact</label>
+                            <label class="form-label" style="font-size:.85rem;font-weight:600"><?= lang('SuperAdmin.platform_email') ?></label>
                             <input type="email" name="platform_email" class="form-control" style="border-radius:10px"
                                    value="<?= esc($platformTenant['email'] ?? '') ?>">
                         </div>
                         <div class="col-md-6">
-                            <label class="form-label" style="font-size:.85rem;font-weight:600">Téléphone</label>
+                            <label class="form-label" style="font-size:.85rem;font-weight:600"><?= lang('SuperAdmin.platform_phone') ?></label>
                             <input type="tel" name="platform_telephone" class="form-control" style="border-radius:10px"
                                    value="<?= esc($platformTenant['telephone'] ?? '') ?>">
                         </div>
                         <div class="col-12">
-                            <label class="form-label" style="font-size:.85rem;font-weight:600">Adresse</label>
+                            <label class="form-label" style="font-size:.85rem;font-weight:600"><?= lang('SuperAdmin.platform_address') ?></label>
                             <textarea name="platform_adresse" class="form-control" style="border-radius:10px" rows="2"><?= esc($platformTenant['adresse'] ?? '') ?></textarea>
                         </div>
                     </div>
                     <button type="submit" class="btn mt-3 w-100" style="background:linear-gradient(135deg,#1a56db,#7c3aed);color:#fff;border:none;border-radius:10px;font-weight:700;padding:11px">
-                        <i class="bi bi-save me-2"></i>Enregistrer
+                        <i class="bi bi-save me-2"></i><?= lang('Common.save') ?>
                     </button>
                 </form>
             </div>
@@ -82,7 +72,7 @@
         <div class="col-lg-5">
             <!-- Comptes démo -->
             <div class="form-card">
-                <div class="section-title"><i class="bi bi-person-badge me-2 text-primary"></i>Comptes démo</div>
+                <div class="section-title"><i class="bi bi-person-badge me-2 text-primary"></i><?= lang('SuperAdmin.demo_accounts') ?></div>
                 <div class="info-box">
                     <div class="d-flex align-items-center gap-2 mb-1">
                         <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700">SUPER ADMIN</span>
@@ -99,7 +89,7 @@
                 </div>
                 <div class="info-box">
                     <div class="d-flex align-items-center gap-2 mb-1">
-                        <span style="background:#7c3aed;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700">MÉDECIN</span>
+                        <span style="background:#7c3aed;color:#fff;padding:2px 8px;border-radius:6px;font-size:.72rem;font-weight:700"><?= strtoupper(lang('Admin.role_medecin')) ?></span>
                     </div>
                     <div style="font-size:.85rem;font-weight:600">dr.benaissa@ikelyanemed.com</div>
                     <div class="text-muted" style="font-size:.8rem">Medecin@2024</div>
@@ -115,7 +105,7 @@
 
             <!-- Hôpitaux démo -->
             <div class="form-card">
-                <div class="section-title"><i class="bi bi-building me-2 text-primary"></i>Établissements démo</div>
+                <div class="section-title"><i class="bi bi-building me-2 text-primary"></i><?= lang('SuperAdmin.demo_establishments') ?></div>
                 <?php
                 $demos = [
                     ['CHU Mustapha Bacha','Alger','premium','admin@chu-mustapha.dz'],

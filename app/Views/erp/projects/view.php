@@ -47,7 +47,7 @@
             </div>
             <div class="card-body p-0">
                 <?php if (empty($tasks)): ?>
-                <div class="text-center py-4 text-muted"><i class="bi bi-list-check fs-3 d-block mb-2"></i>Aucune tâche</div>
+                <div class="text-center py-4 text-muted"><i class="bi bi-list-check fs-3 d-block mb-2"></i><?= lang('Admin.no_tasks') ?></div>
                 <?php else:
                 $taskStColors = ['todo'=>'secondary','in_progress'=>'warning','done'=>'success','cancelled'=>'danger'];
                 foreach ($tasks as $task): $tc = $taskStColors[$task['statut']] ?? 'secondary'; ?>
@@ -106,14 +106,14 @@
                             </select>
                         </div>
                         <div class="col-md-4"><label class="form-label fw-semibold"><?= lang('Erp.due_date') ?></label><input type="date" name="date_echeance" class="form-control"></div>
-                        <div class="col-md-6"><label class="form-label fw-semibold"><?= lang('Erp.assigned_to') ?? 'Assigné à' ?></label>
+                        <div class="col-md-6"><label class="form-label fw-semibold"><?= lang('Erp.assigned_to') ?></label>
                             <select name="assigned_to" class="form-select">
                                 <option value="">—</option>
                                 <?php foreach ($users as $u): ?><option value="<?= $u['id'] ?>"><?= esc($u['prenom'].' '.$u['nom']) ?></option><?php endforeach; ?>
                             </select>
                         </div>
                         <div class="col-md-6"><label class="form-label fw-semibold"><?= lang('Erp.est_hours') ?></label><input type="number" name="heures_estimees" class="form-control" step="0.5" min="0" value="0"></div>
-                        <div class="col-12"><label class="form-label fw-semibold">Description</label><textarea name="description" class="form-control" rows="2"></textarea></div>
+                        <div class="col-12"><label class="form-label fw-semibold"><?= lang('Common.description') ?></label><textarea name="description" class="form-control" rows="2"></textarea></div>
                     </div>
                 </div>
                 <div class="modal-footer">

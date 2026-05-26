@@ -98,7 +98,7 @@ $expired  = $expireTs && $expireTs < time();
                 <?php if (empty($payments)): ?>
                 <div class="text-center text-muted py-5" style="font-size:.9rem">
                     <i class="bi bi-receipt" style="font-size:2rem;display:block;margin-bottom:8px;opacity:.4"></i>
-                    Aucun paiement enregistré
+                    <?= lang('Admin.no_payments') ?>
                 </div>
                 <?php else: ?>
                 <div class="table-responsive">
@@ -183,7 +183,7 @@ $expired  = $expireTs && $expireTs < time();
                                 <div>
                                     <div style="font-weight:700;font-size:.95rem;color:<?= $p['color'] ?>"><?= $p['nom'] ?></div>
                                     <div style="font-size:.8rem;color:#64748b;margin-top:2px">
-                                        <?= $slug === 'pro' ? '10 utilisateurs · 5 000 contacts' : 'Illimité · Tous les modules' ?>
+                                        <?= $slug === 'pro' ? lang('Admin.plan_users_contacts') : lang('Admin.plan_unlimited') ?>
                                     </div>
                                 </div>
                                 <div class="text-end">

@@ -44,7 +44,7 @@
     <div class="col-lg-8">
         <div class="card border-0 shadow-sm">
             <div class="card-header bg-transparent border-0">
-                <h6 class="mb-0 fw-semibold"><i class="bi bi-bar-chart-fill me-2 text-success"></i><?= date('Y') ?> — Revenus vs Dépenses</h6>
+                <h6 class="mb-0 fw-semibold"><i class="bi bi-bar-chart-fill me-2 text-success"></i><?= date('Y') ?> — <?= lang('Admin.revenue_vs_expenses') ?></h6>
             </div>
             <div class="card-body"><canvas id="financeChart" height="80"></canvas></div>
         </div>
