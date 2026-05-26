@@ -16,6 +16,11 @@ if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
     exit(1);
 }
 
+// HEAD → GET : CI4 ne route pas HEAD automatiquement vers les routes GET
+if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'HEAD') {
+    $_SERVER['REQUEST_METHOD'] = 'GET';
+}
+
 // Chemin vers ce fichier (front controller)
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
