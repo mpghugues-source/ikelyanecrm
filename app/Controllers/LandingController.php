@@ -12,7 +12,7 @@ class LandingController extends BaseController
         if (session()->get('logged_in')) {
             return redirect()->to($this->getDashboardRoute());
         }
-        return view('layouts/landing', ['title' => 'IkelyaneMed — Gestion Médicale SaaS']);
+        return view('layouts/landing', ['title' => 'IkelyaneCRM — CRM & ERP SaaS']);
     }
 
     public function contact()
