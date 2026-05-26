@@ -23,7 +23,12 @@ use CodeIgniter\HotReloader\HotReloader;
  *      Events::on('create', [$myInstance, 'myMethod']);
  */
 
+// HEAD requests → traités comme GET (les navigateurs utilisent GET, mais les crawlers/monitors utilisent HEAD)
 Events::on('pre_system', static function (): void {
+    if (isset($_SERVER['REQUEST_METHOD']) && strtoupper($_SERVER['REQUEST_METHOD']) === 'HEAD') {
+        $_SERVER['REQUEST_METHOD'] = 'GET';
+    }
+
     if (ENVIRONMENT !== 'testing') {
         if (ini_get('zlib.output_compression')) {
             throw FrameworkException::forEnabledZlibOutputCompression();
