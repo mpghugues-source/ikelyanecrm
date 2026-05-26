@@ -11,7 +11,7 @@ $current = current_url(true)->getPath();
             </div>
             <div class="brand-text">
                 <span class="brand-name">IkelyaneCRM</span>
-                <small class="brand-sub d-block" style="color:rgba(165,180,252,.7);font-size:.7rem">
+                <small class="brand-sub d-block" style="color:rgba(110,231,183,.7);font-size:.7rem">
                     <?= esc(session()->get('tenant_nom') ?? 'CRM & ERP') ?>
                 </small>
             </div>
@@ -80,7 +80,7 @@ $current = current_url(true)->getPath();
         <?php endif; ?>
 
         <!-- ── CRM ─────────────────────────────────────── -->
-        <div class="nav-section-title" style="color:rgba(167,139,250,.7);margin-top:4px">
+        <div class="nav-section-title" style="color:rgba(110,231,183,.7);margin-top:4px">
             <i class="bi bi-people-fill" style="font-size:.65rem;margin-right:4px"></i><?= lang('Nav.crm_section') ?>
         </div>
         <a href="/crm" class="nav-link <?= ($current === '/crm' || $current === '/crm/') ? 'active' : '' ?>">
@@ -104,7 +104,7 @@ $current = current_url(true)->getPath();
 
         <!-- ── ERP ─────────────────────────────────────── -->
         <?php if (in_array($role, ['admin','manager'])): ?>
-        <div class="nav-section-title" style="color:rgba(52,211,153,.7);margin-top:4px">
+        <div class="nav-section-title" style="color:rgba(249,115,22,.7);margin-top:4px">
             <i class="bi bi-building-fill-gear" style="font-size:.65rem;margin-right:4px"></i><?= lang('Nav.erp_section') ?>
         </div>
         <a href="/erp" class="nav-link <?= ($current === '/erp' || $current === '/erp/') ? 'active' : '' ?>">
