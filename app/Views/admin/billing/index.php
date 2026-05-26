@@ -150,7 +150,7 @@ $expired  = $expireTs && $expireTs < time();
         <div class="card border-0 shadow-sm" style="border-radius:16px">
             <div class="card-body p-4">
                 <h6 class="fw-700 mb-4">
-                    <?= $expired ? 'Renouveler votre abonnement' : ($plan === 'gratuit' ? 'Passer à un plan payant' : 'Renouveler / Changer de plan') ?>
+                    <?= $expired ? 'Renouveler votre abonnement' : ($plan === 'starter' ? 'Passer à un plan payant' : 'Renouveler / Changer de plan') ?>
                 </h6>
 
                 <?php if (session()->getFlashdata('error')): ?>
@@ -168,12 +168,12 @@ $expired  = $expireTs && $expireTs < time();
                 <form action="/abonnement/renouveler" method="POST" id="renewForm">
                     <?= csrf_field() ?>
                     <input type="hidden" name="cycle" id="cycleInput" value="monthly">
-                    <input type="hidden" name="plan"  id="planInput"  value="<?= $plan === 'gratuit' ? 'basic' : esc($plan) ?>">
+                    <input type="hidden" name="plan"  id="planInput"  value="<?= $plan === 'starter' ? 'pro' : esc($plan) ?>">
 
                     <!-- Plans -->
                     <div class="d-flex flex-column gap-3 mb-4">
-                        <?php foreach (['basic', 'premium'] as $slug):
-                            $p         = $plans[$slug];
+                        <?php foreach (['pro', 'enterprise'] as $slug):
+                            $p         = $plans[$slug] ?? ['nom' => ucfirst($slug), 'color' => '#1a56db', 'mensuel' => 0, 'annuel' => 0, 'features' => []];
                             $isCurrent = ($plan === $slug);
                         ?>
                         <div class="plan-option <?= $isCurrent ? 'selected' : '' ?>"
@@ -183,7 +183,7 @@ $expired  = $expireTs && $expireTs < time();
                                 <div>
                                     <div style="font-weight:700;font-size:.95rem;color:<?= $p['color'] ?>"><?= $p['nom'] ?></div>
                                     <div style="font-size:.8rem;color:#64748b;margin-top:2px">
-                                        <?= $slug === 'basic' ? '10 médecins · 1 000 patients' : 'Illimité · Tous les modules' ?>
+                                        <?= $slug === 'pro' ? '10 utilisateurs · 5 000 contacts' : 'Illimité · Tous les modules' ?>
                                     </div>
                                 </div>
                                 <div class="text-end">
@@ -206,7 +206,7 @@ $expired  = $expireTs && $expireTs < time();
                             style="background:linear-gradient(135deg,#1a56db,#7c3aed);color:#fff;border:none;font-size:1rem">
                         <i class="bi bi-credit-card me-2"></i>
                         <span id="btnText">
-                            <?= $expired ? 'Renouveler maintenant' : ($plan === 'gratuit' ? 'Passer au plan payant' : 'Renouveler maintenant') ?>
+                            <?= $expired ? 'Renouveler maintenant' : ($plan === 'starter' ? 'Passer au plan payant' : 'Renouveler maintenant') ?>
                         </span>
                     </button>
 
@@ -245,7 +245,7 @@ $expired  = $expireTs && $expireTs < time();
 
 <?= $this->section('scripts') ?>
 <script>
-const planColors = { basic: '#1a56db', premium: '#7c3aed' };
+const planColors = { pro: '#1a56db', enterprise: '#7c3aed' };
 let currentCycle = 'monthly';
 
 function setCycle(cycle, btn) {
