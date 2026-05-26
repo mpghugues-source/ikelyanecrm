@@ -1,0 +1,22 @@
+<?php
+return [
+    'title'          => 'Pharmacy — Medication stock',
+    'add'            => 'Add medication',
+    'edit'           => 'Edit medication',
+    'low_stock_alert'=> '{0} medication(s) with low or depleted stock.',
+    'name'           => 'Medication name',
+    'category'       => 'Category',
+    'form'           => 'Form',
+    'dosage'         => 'Dosage',
+    'current_stock'  => 'Current stock',
+    'min_stock'      => 'Minimum stock',
+    'unit_price'     => 'Unit price (DA)',
+    'supplier'       => 'Supplier',
+    'expiry_date'    => 'Expiry date',
+    'notes'          => 'Notes',
+    'no_results'     => 'No medications found.',
+    'created'        => 'Medication added successfully.',
+    'updated'        => 'Medication updated.',
+    'deleted'        => 'Medication deleted.',
+    'forms'          => ['Tablet','Capsule','Syrup','Injectable','Ointment','Suppository','Other'],
+];

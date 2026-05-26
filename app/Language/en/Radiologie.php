@@ -1,0 +1,26 @@
+<?php
+return [
+    'title'        => 'Radiology — Examinations',
+    'add'          => 'New examination',
+    'edit'         => 'Edit examination',
+    'number'       => 'Number',
+    'patient'      => 'Patient',
+    'doctor'       => 'Prescribing doctor',
+    'exam_type'    => 'Examination type',
+    'region'       => 'Anatomical region',
+    'request_date' => 'Request date',
+    'exam_date'    => 'Exam date',
+    'report'       => 'Radiology report',
+    'indication'   => 'Description / Clinical indication',
+    'status'       => 'Status',
+    'statuses'     => [
+        'en_attente' => 'Pending',
+        'programme'  => 'Scheduled',
+        'realise'    => 'Completed',
+        'annule'     => 'Cancelled',
+    ],
+    'no_results'   => 'No examinations.',
+    'created'      => 'Examination created.',
+    'updated'      => 'Examination updated.',
+    'deleted'      => 'Examination deleted.',
+];

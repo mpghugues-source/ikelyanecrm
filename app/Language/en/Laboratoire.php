@@ -1,0 +1,26 @@
+<?php
+return [
+    'title'      => 'Laboratory — Analyses',
+    'add'        => 'New analysis',
+    'edit'       => 'Edit analysis',
+    'number'     => 'Number',
+    'patient'    => 'Patient',
+    'doctor'     => 'Prescribing doctor',
+    'type'       => 'Analysis type',
+    'request_date'  => 'Request date',
+    'result_date'   => 'Result date',
+    'result'     => 'Result',
+    'urgent'     => 'Urgent',
+    'status'     => 'Status',
+    'statuses'   => [
+        'en_attente'         => 'Pending',
+        'en_cours'           => 'In progress',
+        'resultat_disponible'=> 'Result available',
+        'annule'             => 'Cancelled',
+    ],
+    'no_results' => 'No analyses.',
+    'created'    => 'Analysis created.',
+    'updated'    => 'Analysis updated.',
+    'deleted'    => 'Analysis deleted.',
+    'placeholder_type' => 'CBC, Blood glucose, Liver panel...',
+];

@@ -1,0 +1,29 @@
+# CodeIgniter
+/vendor/
+/writable/cache/*
+/writable/logs/*
+/writable/session/*
+/writable/uploads/*
+/writable/debugbar/*
+!writable/cache/.gitkeep
+!writable/logs/.gitkeep
+!writable/session/.gitkeep
+!writable/uploads/.gitkeep
+
+# Environnement
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Logs
+error_log
+*.log

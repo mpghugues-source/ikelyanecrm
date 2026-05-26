@@ -1,0 +1,28 @@
+<?php
+return [
+    'title'         => 'Appointments',
+    'calendar'      => 'Calendar',
+    'add'           => 'New appointment',
+    'edit'          => 'Edit appointment',
+    'view'          => 'Appointment detail',
+    'search'        => 'Search...',
+    'patient'       => 'Patient',
+    'doctor'        => 'Doctor',
+    'date_time'     => 'Date & Time',
+    'duration'      => 'Duration',
+    'reason'        => 'Reason',
+    'status'        => 'Status',
+    'statuses'      => [
+        'planifie'  => 'Scheduled',
+        'confirme'  => 'Confirmed',
+        'termine'   => 'Completed',
+        'annule'    => 'Cancelled',
+        'absent'    => 'No-show',
+    ],
+    'no_results'    => 'No appointments.',
+    'created'       => 'Appointment created.',
+    'updated'       => 'Appointment updated.',
+    'deleted'       => 'Appointment deleted.',
+    'teleconsult'   => 'Teleconsultation',
+    'meeting_link'  => 'Meeting link',
+];

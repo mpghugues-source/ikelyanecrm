@@ -1,0 +1,25 @@
+<?php
+return [
+    'title'       => 'Facturation',
+    'add'         => 'Nouvelle facture',
+    'view'        => 'Détail facture',
+    'print'       => 'Imprimer',
+    'number'      => 'N° Facture',
+    'patient'     => 'Patient',
+    'doctor'      => 'Médecin',
+    'date'        => 'Date',
+    'total'       => 'Total',
+    'paid'        => 'Payé',
+    'balance'     => 'Solde',
+    'status'      => 'Statut',
+    'mark_paid'   => 'Marquer payé',
+    'statuses'    => [
+        'brouillon' => 'Brouillon',
+        'emise'     => 'Émise',
+        'payee'     => 'Payée',
+        'annule'    => 'Annulée',
+    ],
+    'no_results'  => 'Aucune facture.',
+    'created'     => 'Facture créée.',
+    'updated'     => 'Facture mise à jour.',
+];

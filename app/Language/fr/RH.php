@@ -1,0 +1,21 @@
+<?php
+return [
+    'title'        => 'Ressources Humaines',
+    'add'          => 'Ajouter un employé',
+    'edit'         => "Modifier l'employé",
+    'name'         => 'Nom',
+    'firstname'    => 'Prénom',
+    'position'     => 'Poste',
+    'department'   => 'Département',
+    'contract'     => 'Type de contrat',
+    'hire_date'    => "Date d'embauche",
+    'salary'       => 'Salaire (DA)',
+    'phone'        => 'Téléphone',
+    'email'        => 'Email',
+    'notes'        => 'Notes',
+    'no_results'   => 'Aucun employé.',
+    'search'       => 'Rechercher employé...',
+    'created'      => 'Employé ajouté.',
+    'updated'      => 'Employé mis à jour.',
+    'deleted'      => 'Employé supprimé.',
+];

@@ -1,0 +1,20 @@
+<?php
+return [
+    'title'       => 'Doctors',
+    'add'         => 'Add doctor',
+    'edit'        => 'Edit doctor',
+    'view'        => 'Doctor profile',
+    'name'        => 'Last name',
+    'firstname'   => 'First name',
+    'specialty'   => 'Specialty',
+    'phone'       => 'Phone',
+    'email'       => 'Email',
+    'rpps'        => 'RPPS / ID number',
+    'consultation_fee' => 'Consultation fee',
+    'active'      => 'Active',
+    'no_results'  => 'No doctors found.',
+    'search'      => 'Search doctor...',
+    'created'     => 'Doctor added.',
+    'updated'     => 'Doctor updated.',
+    'deleted'     => 'Doctor deleted.',
+];

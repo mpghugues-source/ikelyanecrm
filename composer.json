@@ -1,0 +1,36 @@
+{
+    "name": "ikelyanemed/saas-medical",
+    "description": "IkeylaneMed - Plateforme SaaS de gestion médicale",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "codeigniter4/framework": "^4.5",
+        "dompdf/dompdf": "*"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9",
+        "phpunit/phpunit": "^10.5",
+        "kint-php/kint": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "exclude-from-classmap": [
+            "**/Database/Migrations/**"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-update-cmd": [
+            "CodeIgniter\\ComposerScripts::postUpdate"
+        ]
+    }
+}

@@ -1,0 +1,22 @@
+<?php
+return [
+    'title'          => 'Pharmacie — Stock médicaments',
+    'add'            => 'Ajouter un médicament',
+    'edit'           => 'Modifier le médicament',
+    'low_stock_alert'=> '{0} médicament(s) en stock bas ou épuisé.',
+    'name'           => 'Nom du médicament',
+    'category'       => 'Catégorie',
+    'form'           => 'Forme',
+    'dosage'         => 'Dosage',
+    'current_stock'  => 'Stock actuel',
+    'min_stock'      => 'Stock minimum',
+    'unit_price'     => 'Prix unitaire (DA)',
+    'supplier'       => 'Fournisseur',
+    'expiry_date'    => "Date d'expiration",
+    'notes'          => 'Notes',
+    'no_results'     => 'Aucun médicament trouvé.',
+    'created'        => 'Médicament ajouté avec succès.',
+    'updated'        => 'Médicament mis à jour.',
+    'deleted'        => 'Médicament supprimé.',
+    'forms'          => ['Comprimé','Gélule','Sirop','Injectable','Pommade','Suppositoire','Autre'],
+];

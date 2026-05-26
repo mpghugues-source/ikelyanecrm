@@ -1,0 +1,22 @@
+<?php
+return [
+    'title'     => 'Prescriptions',
+    'add'       => 'New prescription',
+    'view'      => 'Prescription detail',
+    'print'     => 'Print',
+    'number'    => 'Prescription #',
+    'patient'   => 'Patient',
+    'doctor'    => 'Doctor',
+    'date'      => 'Date',
+    'no_results'=> 'No prescriptions.',
+    'created'   => 'Prescription created.',
+    'medication'=> 'Medication',
+    'dosage'    => 'Dosage',
+    'frequency' => 'Frequency',
+    'duration'  => 'Duration',
+    'quantity'  => 'Quantity',
+    'validity'  => 'Validity',
+    'days'      => 'days',
+    'status'    => 'Status',
+    'my_title'  => 'My prescriptions',
+];

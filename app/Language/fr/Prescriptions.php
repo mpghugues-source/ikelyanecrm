@@ -1,0 +1,22 @@
+<?php
+return [
+    'title'     => 'Ordonnances',
+    'add'       => 'Nouvelle ordonnance',
+    'view'      => "Détail de l'ordonnance",
+    'print'     => 'Imprimer',
+    'number'    => 'N° Ordonnance',
+    'patient'   => 'Patient',
+    'doctor'    => 'Médecin',
+    'date'      => 'Date',
+    'no_results'=> 'Aucune ordonnance.',
+    'created'   => 'Ordonnance créée.',
+    'medication'=> 'Médicament',
+    'dosage'    => 'Posologie',
+    'frequency' => 'Fréquence',
+    'duration'  => 'Durée',
+    'quantity'  => 'Quantité',
+    'validity'  => 'Validité',
+    'days'      => 'jours',
+    'status'    => 'Statut',
+    'my_title'  => 'Mes ordonnances',
+];

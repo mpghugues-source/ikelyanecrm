@@ -1,0 +1,28 @@
+<?php
+return [
+    'title'         => 'Rendez-vous',
+    'calendar'      => 'Calendrier',
+    'add'           => 'Nouveau rendez-vous',
+    'edit'          => 'Modifier le rendez-vous',
+    'view'          => 'Détail du rendez-vous',
+    'search'        => 'Rechercher...',
+    'patient'       => 'Patient',
+    'doctor'        => 'Médecin',
+    'date_time'     => 'Date & Heure',
+    'duration'      => 'Durée',
+    'reason'        => 'Motif',
+    'status'        => 'Statut',
+    'statuses'      => [
+        'planifie'  => 'Planifié',
+        'confirme'  => 'Confirmé',
+        'termine'   => 'Terminé',
+        'annule'    => 'Annulé',
+        'absent'    => 'Absent',
+    ],
+    'no_results'    => 'Aucun rendez-vous.',
+    'created'       => 'Rendez-vous créé.',
+    'updated'       => 'Rendez-vous mis à jour.',
+    'deleted'       => 'Rendez-vous supprimé.',
+    'teleconsult'   => 'Téléconsultation',
+    'meeting_link'  => 'Lien de réunion',
+];

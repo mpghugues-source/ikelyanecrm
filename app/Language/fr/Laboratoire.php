@@ -1,0 +1,26 @@
+<?php
+return [
+    'title'      => 'Laboratoire — Analyses',
+    'add'        => 'Nouvelle analyse',
+    'edit'       => "Modifier l'analyse",
+    'number'     => 'Numéro',
+    'patient'    => 'Patient',
+    'doctor'     => 'Médecin prescripteur',
+    'type'       => "Type d'analyse",
+    'request_date'  => 'Date de demande',
+    'result_date'   => 'Date résultat',
+    'result'     => 'Résultat',
+    'urgent'     => 'Urgent',
+    'status'     => 'Statut',
+    'statuses'   => [
+        'en_attente'         => 'En attente',
+        'en_cours'           => 'En cours',
+        'resultat_disponible'=> 'Résultat disponible',
+        'annule'             => 'Annulé',
+    ],
+    'no_results' => 'Aucune analyse.',
+    'created'    => 'Analyse créée.',
+    'updated'    => 'Analyse mise à jour.',
+    'deleted'    => 'Analyse supprimée.',
+    'placeholder_type' => 'NFS, Glycémie, Bilan hépatique...',
+];

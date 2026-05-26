@@ -1,0 +1,31 @@
+<?php
+return [
+    'title'          => "Bureau d'accueil",
+    'add'            => 'Nouvelle opération',
+    'edit'           => "Modifier l'opération",
+    'patient'        => 'Patient',
+    'visitor'        => 'Nom visiteur (si externe)',
+    'operation_type' => "Type d'opération",
+    'datetime'       => 'Date & Heure',
+    'reason'         => 'Motif',
+    'room'           => 'Chambre / Local',
+    'status'         => 'Statut',
+    'notes'          => 'Notes',
+    'types'          => [
+        'admission'   => 'Admission',
+        'sortie'      => 'Sortie',
+        'consultation'=> 'Consultation',
+        'visite'      => 'Visite',
+        'urgence'     => 'Urgence',
+    ],
+    'statuses'       => [
+        'en_attente' => 'En attente',
+        'en_cours'   => 'En cours',
+        'termine'    => 'Terminé',
+    ],
+    'no_results'     => 'Aucune opération enregistrée.',
+    'created'        => 'Opération enregistrée.',
+    'updated'        => 'Opération mise à jour.',
+    'deleted'        => 'Opération supprimée.',
+    'external_visitor' => '— Visiteur externe —',
+];

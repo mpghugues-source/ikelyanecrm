@@ -1,0 +1,31 @@
+<?php
+return [
+    'title'          => 'Reception Desk',
+    'add'            => 'New operation',
+    'edit'           => 'Edit operation',
+    'patient'        => 'Patient',
+    'visitor'        => 'Visitor name (if external)',
+    'operation_type' => 'Operation type',
+    'datetime'       => 'Date & Time',
+    'reason'         => 'Reason',
+    'room'           => 'Room / Location',
+    'status'         => 'Status',
+    'notes'          => 'Notes',
+    'types'          => [
+        'admission'   => 'Admission',
+        'sortie'      => 'Discharge',
+        'consultation'=> 'Consultation',
+        'visite'      => 'Visit',
+        'urgence'     => 'Emergency',
+    ],
+    'statuses'       => [
+        'en_attente' => 'Waiting',
+        'en_cours'   => 'In progress',
+        'termine'    => 'Completed',
+    ],
+    'no_results'     => 'No operations registered.',
+    'created'        => 'Operation registered.',
+    'updated'        => 'Operation updated.',
+    'deleted'        => 'Operation deleted.',
+    'external_visitor' => '— External visitor —',
+];

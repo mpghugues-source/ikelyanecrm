@@ -1,0 +1,25 @@
+<?php
+return [
+    'title'       => 'Invoicing',
+    'add'         => 'New invoice',
+    'view'        => 'Invoice detail',
+    'print'       => 'Print',
+    'number'      => 'Invoice #',
+    'patient'     => 'Patient',
+    'doctor'      => 'Doctor',
+    'date'        => 'Date',
+    'total'       => 'Total',
+    'paid'        => 'Paid',
+    'balance'     => 'Balance',
+    'status'      => 'Status',
+    'mark_paid'   => 'Mark as paid',
+    'statuses'    => [
+        'brouillon' => 'Draft',
+        'emise'     => 'Issued',
+        'payee'     => 'Paid',
+        'annule'    => 'Cancelled',
+    ],
+    'no_results'  => 'No invoices.',
+    'created'     => 'Invoice created.',
+    'updated'     => 'Invoice updated.',
+];

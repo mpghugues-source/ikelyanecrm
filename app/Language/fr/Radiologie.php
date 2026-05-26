@@ -1,0 +1,26 @@
+<?php
+return [
+    'title'        => 'Radiologie — Examens',
+    'add'          => 'Nouvel examen',
+    'edit'         => "Modifier l'examen",
+    'number'       => 'Numéro',
+    'patient'      => 'Patient',
+    'doctor'       => 'Médecin prescripteur',
+    'exam_type'    => "Type d'examen",
+    'region'       => 'Région anatomique',
+    'request_date' => 'Date de demande',
+    'exam_date'    => "Date d'examen",
+    'report'       => 'Compte rendu',
+    'indication'   => 'Description / Indication clinique',
+    'status'       => 'Statut',
+    'statuses'     => [
+        'en_attente' => 'En attente',
+        'programme'  => 'Programmé',
+        'realise'    => 'Réalisé',
+        'annule'     => 'Annulé',
+    ],
+    'no_results'   => 'Aucun examen.',
+    'created'      => 'Examen créé.',
+    'updated'      => 'Examen mis à jour.',
+    'deleted'      => 'Examen supprimé.',
+];

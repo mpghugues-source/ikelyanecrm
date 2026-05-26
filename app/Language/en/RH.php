@@ -1,0 +1,21 @@
+<?php
+return [
+    'title'        => 'Human Resources',
+    'add'          => 'Add employee',
+    'edit'         => 'Edit employee',
+    'name'         => 'Last name',
+    'firstname'    => 'First name',
+    'position'     => 'Position',
+    'department'   => 'Department',
+    'contract'     => 'Contract type',
+    'hire_date'    => 'Hire date',
+    'salary'       => 'Salary (DA)',
+    'phone'        => 'Phone',
+    'email'        => 'Email',
+    'notes'        => 'Notes',
+    'no_results'   => 'No employees.',
+    'search'       => 'Search employee...',
+    'created'      => 'Employee added.',
+    'updated'      => 'Employee updated.',
+    'deleted'      => 'Employee deleted.',
+];
