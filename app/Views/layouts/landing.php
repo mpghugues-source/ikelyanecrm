@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= esc($title ?? 'IkelyaneMed — Gestion Médicale SaaS') ?></title>
-    <meta name="description" content="IkelyaneMed - La solution SaaS complète de gestion médicale. Patients, rendez-vous, ordonnances, facturation. Disponible partout dans le monde. Essai gratuit.">
+    <title><?= esc($title ?? 'IkelyaneCRM — CRM & ERP SaaS') ?></title>
+    <meta name="description" content="IkelyaneCRM - La solution SaaS CRM & ERP complète. Contacts, leads, inventaire, projets, fournisseurs. Gérez votre entreprise depuis une seule plateforme.">
     <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
     <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
@@ -26,6 +26,7 @@
             --secondary: #7c3aed;
             --accent: #06b6d4;
             --success: #10b981;
+            --orange: #f97316;
             --dark: #0f172a;
             --gray-100: #f8fafc;
             --gray-200: #e2e8f0;
@@ -35,7 +36,7 @@
 
         /* NAVBAR */
         .navbar-brand { font-size: 1.6rem; font-weight: 800; }
-        .navbar-brand .med { color: var(--primary); }
+        .navbar-brand .crm { color: var(--primary); }
         .navbar-brand .ikel { color: var(--secondary); }
         .navbar { backdrop-filter: blur(10px); background: rgba(255,255,255,0.95) !important; border-bottom: 1px solid var(--gray-200); }
         .nav-link { font-weight: 500; color: #374151 !important; transition: color .2s; }
@@ -75,6 +76,14 @@
         .mockup-stat { font-size: 1.6rem; font-weight: 800; color: #60a5fa; }
         .mockup-label { font-size: .75rem; color: #94a3b8; }
 
+        /* MODULE TABS */
+        .modules-section { padding: 100px 0; background: #fff; }
+        .module-tab { cursor: pointer; border-radius: 16px; padding: 20px 24px; border: 2px solid var(--gray-200); transition: all .3s; background: #fff; }
+        .module-tab:hover, .module-tab.active { border-color: var(--primary); background: #f0f5ff; }
+        .module-tab .tab-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+        .module-tab .tab-title { font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+        .module-tab .tab-desc { font-size: .85rem; color: #64748b; }
+
         /* FEATURES */
         .features-section { padding: 100px 0; background: var(--gray-100); }
         .section-badge { background: rgba(26,86,219,0.1); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: .85rem; font-weight: 600; display: inline-block; margin-bottom: 16px; }
@@ -84,6 +93,14 @@
         .feature-icon { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 20px; }
         .feature-title { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
         .feature-desc { color: #64748b; line-height: 1.7; font-size: .95rem; }
+
+        /* GEAR ANIMATION */
+        .gear-container { position: relative; display: flex; align-items: center; justify-content: center; gap: 0; }
+        .gear { display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .gear-big { width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; font-size: 2.2rem; animation: spin 8s linear infinite; }
+        .gear-small { width: 60px; height: 60px; background: linear-gradient(135deg, var(--secondary), var(--accent)); color: #fff; font-size: 1.5rem; animation: spin-reverse 6s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes spin-reverse { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
 
         /* HOW IT WORKS */
         .how-section { padding: 100px 0; background: #fff; }
@@ -122,7 +139,7 @@
         /* FOOTER */
         .footer { background: #0f172a; padding: 60px 0 30px; }
         .footer-brand { font-size: 1.4rem; font-weight: 800; }
-        .footer-brand .med { color: var(--primary); }
+        .footer-brand .crm { color: var(--primary); }
         .footer-brand .ikel { color: var(--secondary); }
         .footer-link { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 8px; font-size: .9rem; transition: color .2s; }
         .footer-link:hover { color: #fff; }
@@ -147,17 +164,17 @@
 <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <span class="ikel">Ikelya</span><span class="med">neMed</span>
+            <span class="ikel">Ikelya</span><span class="crm">neCRM</span>
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav mx-auto gap-1">
+                <li class="nav-item"><a class="nav-link" href="#modules">Modules</a></li>
                 <li class="nav-item"><a class="nav-link" href="#fonctionnalites">Fonctionnalités</a></li>
                 <li class="nav-item"><a class="nav-link" href="#comment">Comment ça marche</a></li>
                 <li class="nav-item"><a class="nav-link" href="#tarifs">Tarifs</a></li>
-                <li class="nav-item"><a class="nav-link" href="#temoignages">Témoignages</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
             <div class="d-flex gap-2 mt-2 mt-lg-0">
@@ -175,32 +192,32 @@
             <div class="col-lg-6">
                 <div class="hero-badge mb-4">
                     <i class="bi bi-stars"></i>
-                    Nouveau — Téléconsultation intégrée disponible
+                    Nouveau — Module ERP & Gestion de projets disponible
                 </div>
                 <h1 class="hero-title mb-4">
-                    La gestion médicale<br>
-                    <span class="highlight">simplifiée &amp; intelligente</span>
+                    CRM &amp; ERP tout-en-un<br>
+                    <span class="highlight">simple &amp; puissant</span>
                 </h1>
                 <p class="hero-subtitle mb-5">
-                    IkelyaneMed centralise patients, rendez-vous, ordonnances et facturation dans une seule plateforme SaaS. Conçu pour les cliniques et cabinets médicaux du monde entier.
+                    IkelyaneCRM centralise vos contacts, leads, campagnes, stocks et projets dans une seule plateforme SaaS. Conçu pour les équipes commerciales et opérationnelles du monde entier.
                 </p>
                 <div class="d-flex flex-wrap gap-3 mb-5">
                     <a href="/register" class="btn btn-hero-primary">
                         <i class="bi bi-rocket-takeoff me-2"></i>Démarrer gratuitement
                     </a>
-                    <a href="#fonctionnalites" class="btn btn-hero-secondary">
-                        <i class="bi bi-play-circle me-2"></i>Voir la démo
+                    <a href="#modules" class="btn btn-hero-secondary">
+                        <i class="bi bi-play-circle me-2"></i>Découvrir les modules
                     </a>
                 </div>
                 <div class="hero-stats">
                     <div class="row g-4">
                         <div class="col-4">
-                            <div class="hero-stat-value">500+</div>
-                            <div class="hero-stat-label">Cliniques actives</div>
+                            <div class="hero-stat-value">200+</div>
+                            <div class="hero-stat-label">Entreprises actives</div>
                         </div>
                         <div class="col-4">
-                            <div class="hero-stat-value">50k+</div>
-                            <div class="hero-stat-label">Patients gérés</div>
+                            <div class="hero-stat-value">15k+</div>
+                            <div class="hero-stat-label">Leads traités</div>
                         </div>
                         <div class="col-4">
                             <div class="hero-stat-value">99.9%</div>
@@ -215,28 +232,28 @@
                         <div class="mockup-dot" style="background:#ef4444"></div>
                         <div class="mockup-dot" style="background:#f59e0b"></div>
                         <div class="mockup-dot" style="background:#10b981"></div>
-                        <span style="color:#94a3b8;font-size:.8rem;margin-left:8px">IkelyaneMed Dashboard</span>
+                        <span style="color:#94a3b8;font-size:.8rem;margin-left:8px">IkelyaneCRM Dashboard</span>
                     </div>
                     <div class="row g-3 mb-3">
                         <div class="col-6">
                             <div class="mockup-card">
-                                <div style="color:#94a3b8;font-size:.75rem;margin-bottom:4px"><i class="bi bi-people me-1"></i>Patients</div>
-                                <div class="mockup-stat">1,284</div>
-                                <div class="mockup-label" style="color:#10b981">+12% ce mois</div>
+                                <div style="color:#94a3b8;font-size:.75rem;margin-bottom:4px"><i class="bi bi-people me-1"></i>Contacts</div>
+                                <div class="mockup-stat">3,847</div>
+                                <div class="mockup-label" style="color:#10b981">+18% ce mois</div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="mockup-card">
-                                <div style="color:#94a3b8;font-size:.75rem;margin-bottom:4px"><i class="bi bi-calendar-check me-1"></i>RDV aujourd'hui</div>
-                                <div class="mockup-stat" style="color:#a78bfa">24</div>
-                                <div class="mockup-label">6 restants</div>
+                                <div style="color:#94a3b8;font-size:.75rem;margin-bottom:4px"><i class="bi bi-funnel me-1"></i>Leads actifs</div>
+                                <div class="mockup-stat" style="color:#a78bfa">142</div>
+                                <div class="mockup-label">32 en négociation</div>
                             </div>
                         </div>
                     </div>
                     <div class="mockup-card mb-3">
-                        <div style="color:#94a3b8;font-size:.75rem;margin-bottom:12px"><i class="bi bi-graph-up me-1"></i>Revenus mensuels</div>
+                        <div style="color:#94a3b8;font-size:.75rem;margin-bottom:12px"><i class="bi bi-graph-up me-1"></i>Pipeline commercial</div>
                         <div style="display:flex;gap:4px;align-items:flex-end;height:60px">
-                            <?php $bars = [40,65,45,80,55,95,75,100,70,85,60,90]; foreach($bars as $h): ?>
+                            <?php $bars = [35,55,40,75,50,90,65,100,60,80,45,85]; foreach($bars as $h): ?>
                             <div style="flex:1;background:linear-gradient(180deg,#1a56db,#7c3aed);border-radius:4px 4px 0 0;height:<?= $h ?>%;opacity:.8"></div>
                             <?php endforeach; ?>
                         </div>
@@ -244,20 +261,20 @@
                     <div class="row g-2">
                         <div class="col-4">
                             <div class="mockup-card text-center">
-                                <div style="color:#10b981;font-size:1.2rem;font-weight:800">18</div>
-                                <div class="mockup-label">Confirmés</div>
+                                <div style="color:#10b981;font-size:1.2rem;font-weight:800">24</div>
+                                <div class="mockup-label">Gagnés</div>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="mockup-card text-center">
-                                <div style="color:#f59e0b;font-size:1.2rem;font-weight:800">4</div>
-                                <div class="mockup-label">En attente</div>
+                                <div style="color:#f59e0b;font-size:1.2rem;font-weight:800">18</div>
+                                <div class="mockup-label">En cours</div>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="mockup-card text-center">
-                                <div style="color:#ef4444;font-size:1.2rem;font-weight:800">2</div>
-                                <div class="mockup-label">Annulés</div>
+                                <div style="color:#ef4444;font-size:1.2rem;font-weight:800">5</div>
+                                <div class="mockup-label">Perdus</div>
                             </div>
                         </div>
                     </div>
@@ -267,25 +284,116 @@
     </div>
 </section>
 
+<!-- MODULES CRM + ERP -->
+<section class="modules-section" id="modules">
+    <div class="container">
+        <div class="text-center mb-5 fade-up">
+            <span class="section-badge"><i class="bi bi-gear-fill me-1"></i>Modules</span>
+            <h2 class="section-title">CRM + ERP intégrés dans une seule plateforme</h2>
+            <p class="text-muted mt-3" style="max-width:600px;margin:0 auto">Deux moteurs puissants, un seul outil. Gérez votre cycle de vente et vos opérations sans changer d'application.</p>
+        </div>
+        <div class="row g-4 mb-5">
+            <!-- CRM -->
+            <div class="col-lg-6 fade-up">
+                <div class="rounded-4 p-4 h-100" style="background:linear-gradient(135deg,#eff6ff,#f5f3ff);border:2px solid #dbeafe">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <div style="width:56px;height:56px;background:linear-gradient(135deg,#1a56db,#7c3aed);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff">
+                            <i class="bi bi-gear-fill"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-weight:800;color:var(--dark);margin:0">Module CRM</h3>
+                            <div style="color:#64748b;font-size:.9rem">Gestion de la relation client</div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <?php foreach([
+                            ['bi-people-fill','#dbeafe','#1a56db','Contacts','Base contacts complète avec segmentation et historique'],
+                            ['bi-funnel-fill','#ede9fe','#7c3aed','Leads & Pipeline','Suivi des opportunités avec vue Kanban et scoring'],
+                            ['bi-megaphone-fill','#d1fae5','#059669','Campagnes','Campagnes marketing multicanal avec suivi des résultats'],
+                            ['bi-chat-dots-fill','#fef3c7','#d97706','Support & Cases','Gestion des tickets et demandes clients en temps réel'],
+                        ] as $f): ?>
+                        <div class="col-6">
+                            <div class="bg-white rounded-3 p-3 d-flex align-items-start gap-2 h-100">
+                                <div style="width:36px;height:36px;background:<?= $f[1] ?>;border-radius:10px;display:flex;align-items:center;justify-content:center;color:<?= $f[2] ?>;flex-shrink:0">
+                                    <i class="bi <?= $f[0] ?>"></i>
+                                </div>
+                                <div>
+                                    <div style="font-weight:700;font-size:.85rem;color:var(--dark)"><?= $f[3] ?></div>
+                                    <div style="font-size:.78rem;color:#64748b;line-height:1.4"><?= $f[4] ?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+            <!-- ERP -->
+            <div class="col-lg-6 fade-up">
+                <div class="rounded-4 p-4 h-100" style="background:linear-gradient(135deg,#fff7ed,#fdf4ff);border:2px solid #fed7aa">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <div style="width:56px;height:56px;background:linear-gradient(135deg,#f97316,#a855f7);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff">
+                            <i class="bi bi-gear-wide-connected"></i>
+                        </div>
+                        <div>
+                            <h3 style="font-weight:800;color:var(--dark);margin:0">Module ERP</h3>
+                            <div style="color:#64748b;font-size:.9rem">Planification des ressources</div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <?php foreach([
+                            ['bi-box-seam-fill','#ffedd5','#f97316','Inventaire','Gestion des stocks avec mouvements et alertes de réapprovisionnement'],
+                            ['bi-truck','#fce7f3','#db2777','Fournisseurs','Annuaire fournisseurs avec conditions commerciales et évaluations'],
+                            ['bi-clipboard2-check-fill','#e0f2fe','#0284c7','Bons de commande','Création et suivi des commandes fournisseurs de A à Z'],
+                            ['bi-kanban-fill','#f0fdf4','#16a34a','Projets','Gestion de projets avec tâches, jalons et suivi des équipes'],
+                        ] as $f): ?>
+                        <div class="col-6">
+                            <div class="bg-white rounded-3 p-3 d-flex align-items-start gap-2 h-100">
+                                <div style="width:36px;height:36px;background:<?= $f[1] ?>;border-radius:10px;display:flex;align-items:center;justify-content:center;color:<?= $f[2] ?>;flex-shrink:0">
+                                    <i class="bi <?= $f[0] ?>"></i>
+                                </div>
+                                <div>
+                                    <div style="font-weight:700;font-size:.85rem;color:var(--dark)"><?= $f[3] ?></div>
+                                    <div style="font-size:.78rem;color:#64748b;line-height:1.4"><?= $f[4] ?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Engrenages animés -->
+        <div class="text-center py-4 fade-up">
+            <div class="gear-container d-inline-flex gap-2 align-items-center">
+                <div class="gear gear-big"><i class="bi bi-gear-fill"></i></div>
+                <div class="gear gear-small"><i class="bi bi-gear-fill"></i></div>
+                <div class="gear gear-big" style="animation-delay:-2s"><i class="bi bi-gear-fill"></i></div>
+            </div>
+            <p class="text-muted mt-3">CRM &amp; ERP synchronisés en temps réel</p>
+        </div>
+    </div>
+</section>
+
 <!-- FEATURES -->
 <section class="features-section" id="fonctionnalites">
     <div class="container">
         <div class="text-center mb-5 fade-up">
             <span class="section-badge"><i class="bi bi-lightning-charge me-1"></i>Fonctionnalités</span>
-            <h2 class="section-title">Tout ce dont votre clinique a besoin</h2>
-            <p class="text-muted mt-3" style="max-width:600px;margin:0 auto">Une solution complète pensée pour les professionnels de santé. Simple à utiliser, puissante à exploiter.</p>
+            <h2 class="section-title">Tout ce dont votre équipe a besoin</h2>
+            <p class="text-muted mt-3" style="max-width:600px;margin:0 auto">Une solution complète pensée pour les équipes commerciales et opérationnelles. Simple à prendre en main, puissante à exploiter.</p>
         </div>
         <div class="row g-4">
             <?php
             $features = [
-                ['icon'=>'bi-people-fill','color'=>'#dbeafe','icon_color'=>'#1a56db','title'=>'Gestion des Patients','desc'=>'Dossiers complets avec historique médical, allergies, antécédents, groupe sanguin et contacts d\'urgence.'],
-                ['icon'=>'bi-calendar2-heart','color'=>'#ede9fe','icon_color'=>'#7c3aed','title'=>'Rendez-vous intelligents','desc'=>'Calendrier interactif, prise de RDV en ligne par les patients, rappels automatiques par email.'],
-                ['icon'=>'bi-file-earmark-medical','color'=>'#d1fae5','icon_color'=>'#059669','title'=>'Ordonnances électroniques','desc'=>'Créez et imprimez des ordonnances professionnelles avec catalogue de médicaments intégré.'],
-                ['icon'=>'bi-receipt','color'=>'#fef3c7','icon_color'=>'#d97706','title'=>'Facturation automatique','desc'=>'Générez des factures, suivez les paiements, exportez les rapports financiers en PDF.'],
-                ['icon'=>'bi-graph-up-arrow','color'=>'#fce7f3','icon_color'=>'#db2777','title'=>'Tableaux de bord','desc'=>'Statistiques en temps réel : revenus, patients, RDV, performance des médecins.'],
-                ['icon'=>'bi-shield-lock','color'=>'#e0f2fe','icon_color'=>'#0284c7','title'=>'Sécurité & Multi-tenant','desc'=>'Données isolées par clinique, chiffrement, sauvegardes automatiques, conformité RGPD.'],
-                ['icon'=>'bi-person-video3','color'=>'#f0fdf4','icon_color'=>'#16a34a','title'=>'Portail Patient','desc'=>'Espace patient pour consulter RDV, ordonnances, résultats et prendre rendez-vous en ligne.'],
-                ['icon'=>'bi-building-check','color'=>'#fef9c3','icon_color'=>'#ca8a04','title'=>'Multi-spécialités','desc'=>'Gérez plusieurs spécialités et médecins dans un seul cabinet. Agendas séparés et partagés.'],
+                ['icon'=>'bi-people-fill','color'=>'#dbeafe','icon_color'=>'#1a56db','title'=>'Gestion des Contacts','desc'=>'Base de contacts enrichie avec historique complet, segmentation, tags et notes d\'activité.'],
+                ['icon'=>'bi-funnel-fill','color'=>'#ede9fe','icon_color'=>'#7c3aed','title'=>'Pipeline de ventes','desc'=>'Vue Kanban des opportunités, scoring automatique des leads et prévisions de revenus.'],
+                ['icon'=>'bi-megaphone','color'=>'#d1fae5','icon_color'=>'#059669','title'=>'Campagnes marketing','desc'=>'Créez et suivez des campagnes email, mesurez les conversions et optimisez vos actions.'],
+                ['icon'=>'bi-box-seam','color'=>'#fef3c7','icon_color'=>'#d97706','title'=>'Gestion des stocks','desc'=>'Suivi des niveaux de stock, mouvements d\'entrée/sortie, alertes et valorisation.'],
+                ['icon'=>'bi-graph-up-arrow','color'=>'#fce7f3','icon_color'=>'#db2777','title'=>'Tableaux de bord','desc'=>'Indicateurs temps réel : chiffre d\'affaires, pipeline, taux de conversion, performance équipe.'],
+                ['icon'=>'bi-shield-lock','color'=>'#e0f2fe','icon_color'=>'#0284c7','title'=>'Sécurité Multi-tenant','desc'=>'Données isolées par entreprise, chiffrement fort, accès par rôles, conformité RGPD.'],
+                ['icon'=>'bi-chat-dots','color'=>'#f0fdf4','icon_color'=>'#16a34a','title'=>'Messagerie interne','desc'=>'Communicez en équipe, partagez des fichiers et restez synchronisé sur les dossiers clients.'],
+                ['icon'=>'bi-kanban','color'=>'#fef9c3','icon_color'=>'#ca8a04','title'=>'Gestion de projets','desc'=>'Planifiez les projets, assignez les tâches, suivez l\'avancement avec jalons et délais.'],
             ];
             foreach($features as $i => $f): ?>
             <div class="col-md-6 col-lg-3 fade-up" style="transition-delay: <?= $i * 0.1 ?>s">
@@ -311,10 +419,10 @@
                 <h2 class="section-title mb-4">Opérationnel en moins de 5 minutes</h2>
                 <?php
                 $steps = [
-                    ['num'=>'1','title'=>'Créez votre compte','desc'=>'Inscrivez votre clinique en 2 minutes. Aucune carte de crédit requise pour l\'essai gratuit.'],
-                    ['num'=>'2','title'=>'Configurez votre clinique','desc'=>'Ajoutez vos médecins, spécialités, services et personnalisez l\'interface à vos couleurs.'],
-                    ['num'=>'3','title'=>'Importez vos patients','desc'=>'Importez votre base de données existante ou commencez à saisir vos patients directement.'],
-                    ['num'=>'4','title'=>'Gérez au quotidien','desc'=>'Planifiez les RDV, rédigez les ordonnances, émettez les factures — tout en un seul endroit.'],
+                    ['num'=>'1','title'=>'Créez votre compte','desc'=>'Inscrivez votre entreprise en 2 minutes. Aucune carte de crédit requise pour l\'essai gratuit.'],
+                    ['num'=>'2','title'=>'Configurez vos équipes','desc'=>'Ajoutez vos utilisateurs, définissez les rôles (admin, commercial, support, manager) et configurez les accès.'],
+                    ['num'=>'3','title'=>'Importez vos données','desc'=>'Importez vos contacts, prospects et produits depuis votre ancien outil ou commencez directement.'],
+                    ['num'=>'4','title'=>'Gérez au quotidien','desc'=>'Suivez vos leads, gérez vos stocks, pilotez vos projets — tout depuis un seul tableau de bord.'],
                 ];
                 foreach($steps as $i => $step): ?>
                 <div class="d-flex gap-3 mb-2">
@@ -338,46 +446,46 @@
                                     <i class="bi bi-person-plus text-white"></i>
                                 </div>
                                 <div>
-                                    <div style="font-weight:700;font-size:.9rem">Nouveau patient ajouté</div>
-                                    <div class="text-muted" style="font-size:.8rem">Ahmed Benali · PAT-2024-0045</div>
+                                    <div style="font-weight:700;font-size:.9rem">Nouveau contact ajouté</div>
+                                    <div class="text-muted" style="font-size:.8rem">Karim Mansouri · SARL TechDZ · Alger</div>
                                 </div>
-                                <span class="ms-auto badge" style="background:#d1fae5;color:#059669;font-size:.75rem">Actif</span>
+                                <span class="ms-auto badge" style="background:#d1fae5;color:#059669;font-size:.75rem">Qualifié</span>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="bg-white rounded-3 p-3 d-flex align-items-center gap-3 shadow-sm">
                                 <div style="width:40px;height:40px;background:linear-gradient(135deg,#7c3aed,#a855f7);border-radius:10px;display:flex;align-items:center;justify-content:center">
-                                    <i class="bi bi-calendar-check text-white"></i>
+                                    <i class="bi bi-funnel text-white"></i>
                                 </div>
                                 <div>
-                                    <div style="font-weight:700;font-size:.9rem">RDV confirmé — 14h30</div>
-                                    <div class="text-muted" style="font-size:.8rem">Dr. Meriem Kaci · Cardiologie</div>
+                                    <div style="font-weight:700;font-size:.9rem">Lead passé en négociation</div>
+                                    <div class="text-muted" style="font-size:.8rem">Contrat ERP — 12 500 € · Probabilité 75%</div>
                                 </div>
-                                <span class="ms-auto badge" style="background:#dbeafe;color:#1a56db;font-size:.75rem">Confirmé</span>
+                                <span class="ms-auto badge" style="background:#dbeafe;color:#1a56db;font-size:.75rem">Chaud</span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="bg-white rounded-3 p-3 d-flex align-items-center gap-3 shadow-sm">
+                                <div style="width:40px;height:40px;background:linear-gradient(135deg,#f97316,#ef4444);border-radius:10px;display:flex;align-items:center;justify-content:center">
+                                    <i class="bi bi-box-seam text-white"></i>
+                                </div>
+                                <div>
+                                    <div style="font-weight:700;font-size:.9rem">Alerte stock faible</div>
+                                    <div class="text-muted" style="font-size:.8rem">Produit REF-0042 · 3 unités restantes</div>
+                                </div>
+                                <span class="ms-auto badge" style="background:#fef3c7;color:#d97706;font-size:.75rem">À réapprovisionner</span>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="bg-white rounded-3 p-3 d-flex align-items-center gap-3 shadow-sm">
                                 <div style="width:40px;height:40px;background:linear-gradient(135deg,#059669,#10b981);border-radius:10px;display:flex;align-items:center;justify-content:center">
-                                    <i class="bi bi-file-medical text-white"></i>
+                                    <i class="bi bi-check-circle text-white"></i>
                                 </div>
                                 <div>
-                                    <div style="font-weight:700;font-size:.9rem">Ordonnance créée</div>
-                                    <div class="text-muted" style="font-size:.8rem">ORD-2024-0128 · 3 médicaments</div>
+                                    <div style="font-weight:700;font-size:.9rem">Projet clôturé avec succès</div>
+                                    <div class="text-muted" style="font-size:.8rem">Déploiement CRM — 14 tâches complétées</div>
                                 </div>
-                                <span class="ms-auto badge" style="background:#d1fae5;color:#059669;font-size:.75rem">Imprimée</span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="bg-white rounded-3 p-3 d-flex align-items-center gap-3 shadow-sm">
-                                <div style="width:40px;height:40px;background:linear-gradient(135deg,#d97706,#f59e0b);border-radius:10px;display:flex;align-items:center;justify-content:center">
-                                    <i class="bi bi-cash-coin text-white"></i>
-                                </div>
-                                <div>
-                                    <div style="font-weight:700;font-size:.9rem">Paiement reçu</div>
-                                    <div class="text-muted" style="font-size:.8rem">FAC-2024-0098 · €120,00</div>
-                                </div>
-                                <span class="ms-auto badge" style="background:#fef3c7;color:#d97706;font-size:.75rem">Payée</span>
+                                <span class="ms-auto badge" style="background:#d1fae5;color:#059669;font-size:.75rem">Terminé</span>
                             </div>
                         </div>
                     </div>
@@ -392,51 +500,51 @@
     <div class="container">
         <div class="text-center mb-5 fade-up">
             <span class="section-badge"><i class="bi bi-tag me-1"></i>Tarifs</span>
-            <h2 class="section-title">Des plans adaptés à chaque cabinet</h2>
+            <h2 class="section-title">Des plans adaptés à chaque équipe</h2>
             <p class="text-muted mt-3">Commencez gratuitement. Évoluez selon vos besoins. Sans engagement.</p>
         </div>
         <div class="row g-4 align-items-center justify-content-center">
-            <!-- Gratuit -->
+            <!-- Starter -->
             <div class="col-lg-4 col-md-6 fade-up">
                 <div class="pricing-card">
-                    <div class="pricing-plan">Gratuit</div>
+                    <div class="pricing-plan">Starter</div>
                     <div class="pricing-price mt-2">€0<span class="pricing-period">/mois</span></div>
                     <p class="text-muted mt-2 mb-4">Parfait pour démarrer et tester la plateforme.</p>
                     <a href="/register" class="btn btn-pricing btn-pricing-outline mb-4">Commencer gratuitement</a>
                     <hr class="my-4">
-                    <?php foreach(['2 médecins','Jusqu\'à 100 patients','Rendez-vous illimités','Ordonnances & dossiers','Support par email'] as $f): ?>
+                    <?php foreach(['3 utilisateurs','Jusqu\'à 500 contacts','Module CRM de base','Leads & Pipeline','Messagerie interne','Support par email'] as $f): ?>
                     <div class="pricing-feature"><i class="bi bi-check-circle-fill"></i><?= $f ?></div>
                     <?php endforeach; ?>
-                    <?php foreach(['Pharmacie & Laboratoire','Rapports statistiques','Export PDF','Support prioritaire'] as $f): ?>
+                    <?php foreach(['Module ERP','Campagnes marketing','Rapports avancés','Support prioritaire'] as $f): ?>
                     <div class="pricing-feature disabled"><i class="bi bi-x-circle-fill"></i><?= $f ?></div>
                     <?php endforeach; ?>
                 </div>
             </div>
-            <!-- Basic -->
+            <!-- Business -->
             <div class="col-lg-4 col-md-6 fade-up">
                 <div class="pricing-card popular">
-                    <div class="pricing-plan">Basic</div>
+                    <div class="pricing-plan">Business</div>
                     <div class="pricing-price mt-2">€49<span class="pricing-period">/mois</span></div>
-                    <p class="text-muted mt-2 mb-4">La solution complète pour les cabinets en croissance.</p>
-                    <a href="/register?plan=basic" class="btn btn-pricing btn-pricing-primary mb-4">Démarrer maintenant</a>
+                    <p class="text-muted mt-2 mb-4">La solution complète CRM + ERP pour les équipes en croissance.</p>
+                    <a href="/register?plan=business" class="btn btn-pricing btn-pricing-primary mb-4">Démarrer maintenant</a>
                     <hr class="my-4">
-                    <?php foreach(['Jusqu\'à 10 médecins','Jusqu\'à 1 000 patients','Rendez-vous & ordonnances','Pharmacie & Laboratoire','Rappels email automatiques','Rapports statistiques','Export PDF & CSV','Support prioritaire'] as $f): ?>
+                    <?php foreach(['Jusqu\'à 15 utilisateurs','Contacts illimités','CRM complet (leads, campagnes, support)','Module ERP (stocks, fournisseurs, projets)','Bons de commande','Tableaux de bord avancés','Export PDF & CSV','Support prioritaire'] as $f): ?>
                     <div class="pricing-feature"><i class="bi bi-check-circle-fill"></i><?= $f ?></div>
                     <?php endforeach; ?>
-                    <?php foreach(['Radiologie & Ambulances','Module RH'] as $f): ?>
+                    <?php foreach(['API personnalisée','Intégrations sur mesure'] as $f): ?>
                     <div class="pricing-feature disabled"><i class="bi bi-x-circle-fill"></i><?= $f ?></div>
                     <?php endforeach; ?>
                 </div>
             </div>
-            <!-- Premium -->
+            <!-- Enterprise -->
             <div class="col-lg-4 col-md-6 fade-up">
                 <div class="pricing-card">
-                    <div class="pricing-plan">Premium</div>
+                    <div class="pricing-plan">Enterprise</div>
                     <div class="pricing-price mt-2">€99<span class="pricing-period">/mois</span></div>
-                    <p class="text-muted mt-2 mb-4">Pour les cliniques et groupes médicaux.</p>
-                    <a href="/register?plan=premium" class="btn btn-pricing btn-pricing-outline mb-4">Démarrer maintenant</a>
+                    <p class="text-muted mt-2 mb-4">Pour les grandes équipes et groupes multi-sites.</p>
+                    <a href="/register?plan=enterprise" class="btn btn-pricing btn-pricing-outline mb-4">Démarrer maintenant</a>
                     <hr class="my-4">
-                    <?php foreach(['Médecins & patients illimités','Tout le plan Basic','Radiologie & Ambulances','Module RH complet','Téléconsultation intégrée','Rapports avancés multi-sites','Support prioritaire 24/7'] as $f): ?>
+                    <?php foreach(['Utilisateurs illimités','Tout le plan Business','API REST complète','Intégrations personnalisées','Multi-entités & multi-sites','Rapports personnalisés','Support dédié 24/7','Formation incluse'] as $f): ?>
                     <div class="pricing-feature"><i class="bi bi-check-circle-fill"></i><?= $f ?></div>
                     <?php endforeach; ?>
                 </div>
@@ -455,9 +563,9 @@
         <div class="row g-4">
             <?php
             $testimonials = [
-                ['name'=>'Dr. Jean-Pierre Mulamba','role'=>'Cardiologue, Kinshasa','text'=>'IkelyaneMed a transformé la gestion de ma clinique. Les rendez-vous sont mieux organisés et mes patients adorent le portail en ligne pour réserver.','initial'=>'J'],
-                ['name'=>'Dr. Amira Benali','role'=>'Pédiatre, Tunis','text'=>'La création d\'ordonnances électroniques me fait gagner au moins 30 minutes par jour. L\'interface est intuitive et mon équipe l\'a adopté en une journée.','initial'=>'A'],
-                ['name'=>'Dr. Marc Dubois','role'=>'Généraliste, Paris','text'=>'Une solution complète qui s\'adapte à ma pratique. La facturation intégrée et les rapports financiers sont exactement ce dont j\'avais besoin.','initial'=>'M'],
+                ['name'=>'Youssef Tlemçani','role'=>'Directeur Commercial, Alger','text'=>'IkelyaneCRM a transformé notre équipe commerciale. Le suivi des leads en Kanban est intuitif et mes commerciaux l\'ont adopté en une journée. Notre taux de conversion a augmenté de 30%.','initial'=>'Y'],
+                ['name'=>'Fatima Ouali','role'=>'Responsable Opérations, Tunis','text'=>'La combinaison CRM + ERP dans un seul outil est ce que nous cherchions depuis des années. Gestion des stocks et suivi clients enfin synchronisés. Un gain de temps énorme.','initial'=>'F'],
+                ['name'=>'Marc Leclerc','role'=>'CEO, PME, Bruxelles','text'=>'Un outil complet à un prix raisonnable. La gestion des bons de commande et le suivi de projet sont excellents. Le support est réactif et les mises à jour régulières.','initial'=>'M'],
             ];
             foreach($testimonials as $t): ?>
             <div class="col-md-4 fade-up">
@@ -485,10 +593,10 @@
     <div class="container text-center position-relative z-1">
         <div class="fade-up">
             <h2 style="font-size:2.8rem;font-weight:900;color:#fff;margin-bottom:20px">
-                Prêt à moderniser votre cabinet ?
+                Prêt à booster votre équipe ?
             </h2>
             <p style="color:#94a3b8;font-size:1.1rem;max-width:500px;margin:0 auto 40px">
-                Rejoignez plus de 500 cliniques qui font confiance à IkelyaneMed. Essai gratuit 30 jours, sans engagement.
+                Rejoignez plus de 200 entreprises qui font confiance à IkelyaneCRM. Essai gratuit 30 jours, sans engagement.
             </p>
             <div class="d-flex gap-3 justify-content-center flex-wrap">
                 <a href="/register" class="btn btn-hero-primary btn-lg">
@@ -519,7 +627,7 @@
                     </div>
                     <div>
                         <div style="font-weight:700;margin-bottom:2px">Email</div>
-                        <div class="text-muted small">contact@ikelyanemed.com</div>
+                        <div class="text-muted small">contact@ikelyanecrm.com</div>
                     </div>
                 </div>
                 <div class="d-flex align-items-start gap-3 mb-4">
@@ -553,11 +661,11 @@
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label fw-600" style="font-weight:600;font-size:.9rem">Nom complet</label>
-                            <input type="text" name="nom" class="form-control rounded-3" placeholder="Dr. Jean Dupont" required style="border:2px solid #e2e8f0">
+                            <input type="text" name="nom" class="form-control rounded-3" placeholder="Jean Dupont" required style="border:2px solid #e2e8f0">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-600" style="font-weight:600;font-size:.9rem">Email professionnel</label>
-                            <input type="email" name="email" class="form-control rounded-3" placeholder="contact@clinique.com" required style="border:2px solid #e2e8f0">
+                            <input type="email" name="email" class="form-control rounded-3" placeholder="contact@entreprise.com" required style="border:2px solid #e2e8f0">
                         </div>
                         <div class="col-12">
                             <label class="form-label fw-600" style="font-weight:600;font-size:.9rem">Sujet</label>
@@ -591,9 +699,9 @@
         <div class="row g-4">
             <div class="col-lg-4">
                 <div class="footer-brand mb-3">
-                    <span class="ikel">Ikelya</span><span class="med">neMed</span>
+                    <span class="ikel">Ikelya</span><span class="crm">neCRM</span>
                 </div>
-                <p style="color:#94a3b8;font-size:.9rem;line-height:1.7">La solution SaaS de gestion médicale pensée pour les professionnels de santé du monde entier.</p>
+                <p style="color:#94a3b8;font-size:.9rem;line-height:1.7">La solution SaaS CRM & ERP pensée pour les équipes commerciales et opérationnelles du monde entier.</p>
                 <div class="d-flex gap-3 mt-3">
                     <a href="#" style="color:#475569;font-size:1.3rem"><i class="bi bi-facebook"></i></a>
                     <a href="#" style="color:#475569;font-size:1.3rem"><i class="bi bi-instagram"></i></a>
@@ -602,16 +710,16 @@
             </div>
             <div class="col-lg-2 col-6">
                 <div class="footer-heading">Produit</div>
+                <a href="#modules" class="footer-link">Modules CRM & ERP</a>
                 <a href="#fonctionnalites" class="footer-link">Fonctionnalités</a>
                 <a href="#tarifs" class="footer-link">Tarifs</a>
-                <a href="#temoignages" class="footer-link">Témoignages</a>
                 <a href="/register" class="footer-link">Essai gratuit</a>
             </div>
             <div class="col-lg-2 col-6">
-                <div class="footer-heading">Connexion</div>
+                <div class="footer-heading">Accès</div>
                 <a href="/login" class="footer-link">Espace Admin</a>
-                <a href="/login" class="footer-link">Espace Médecin</a>
-                <a href="/login" class="footer-link">Espace Patient</a>
+                <a href="/login" class="footer-link">Espace Commercial</a>
+                <a href="/login" class="footer-link">Espace Manager</a>
             </div>
             <div class="col-lg-2 col-6">
                 <div class="footer-heading">Support</div>
@@ -628,7 +736,7 @@
         </div>
         <hr class="footer-divider">
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
-            <div class="footer-copy">© <?= date('Y') ?> IkelyaneMed. Tous droits réservés.</div>
+            <div class="footer-copy">© <?= date('Y') ?> IkelyaneCRM. Tous droits réservés.</div>
             <div class="footer-copy">Fait avec <i class="bi bi-heart-fill text-danger"></i> pour le monde entier</div>
         </div>
     </div>
@@ -636,19 +744,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Scroll animations
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Navbar scroll effect
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.navbar');
     nav.style.boxShadow = window.scrollY > 20 ? '0 4px 20px rgba(0,0,0,0.1)' : 'none';
 });
 
-// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
         const target = document.querySelector(a.getAttribute('href'));
